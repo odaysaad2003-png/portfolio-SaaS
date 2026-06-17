@@ -5,6 +5,7 @@ import {Inter, Geist_Mono} from "next/font/google";
 import "../../style/globals.css";
 import {cn} from "@/lib/utils";
 import {ThemeProvider} from "@/components/theme/theme-provider";
+import {AppShell} from "@/components/layout/app-shell";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -29,7 +30,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             className={cn("h-full", "antialiased", inter.variable, geistMono.variable)}
         >
             <body className="min-h-full flex flex-col font-sans">
-                <ThemeProvider>{children}</ThemeProvider>
+                <ThemeProvider>
+                    <AppShell>{children}</AppShell>
+                </ThemeProvider>
             </body>
         </html>
     );
