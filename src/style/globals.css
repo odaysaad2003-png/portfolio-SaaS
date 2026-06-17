@@ -80,3 +80,6 @@
     @apply font-sans;
   }
 }
+html {
+  color-scheme: dark;
+}
