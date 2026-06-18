@@ -1,5 +1,5 @@
 "use client";
-
+import {motion} from "framer-motion";
 import {useMemo, useState} from "react";
 
 import {projects} from "@/lib/data/project.data";
@@ -26,21 +26,43 @@ export function ProjectsPageView() {
     }, [search, type, tech]);
 
     return (
-        <section className="min-h-screen py-24">
+        <motion.section
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4 }}
+  className="min-h-screen py-14"
+>
             <div className="mx-auto max-w-6xl px-4 space-y-10">
-                <ProjectsHeader />
+                {/* HEADER + FILTERS (LEVEL 3 LAYOUT FIX) */}
+                {/* LEFT - HEADER */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
+                    {/* LEFT SIDE — HEADER */}
+                    <div className="space-y-3 max-w-2xl">
+                        <ProjectsHeader />
 
-                <ProjectsFilters
-                    search={search}
-                    type={type}
-                    tech={tech}
-                    onSearchChange={setSearch}
-                    onTypeChange={setType}
-                    onTechChange={setTech}
-                />
+                        <p className="text-sm text-white/50">Showing {filteredProjects.length} systems</p>
+                    </div>
 
+                    {/* RIGHT SIDE — FILTERS (STACKED UNDER EACH OTHER, RIGHT ALIGNED) */}
+                    <div className="flex flex-col gap-4 lg:items-end">
+                        <ProjectsFilters
+                            search={search}
+                            type={type}
+                            tech={tech}
+                            onSearchChange={setSearch}
+                            onTypeChange={setType}
+                            onTechChange={setTech}
+                        />
+
+                    </div>
+                </div>
+
+                {/* DIVIDER (SaaS UX DETAIL) */}
+                <div className="h-px w-full bg-white/5" />
+
+                {/* GRID */}
                 <ProjectsGrid projects={filteredProjects} />
             </div>
-        </section>
+        </motion.section>
     );
 }

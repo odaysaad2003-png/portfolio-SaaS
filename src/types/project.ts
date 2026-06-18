@@ -28,4 +28,7 @@ export type Project = {
     featured?: boolean;
 
     createdAt: string;
+    context?: string;
+    architecture?: string[];
+    tags?: string[];
 };

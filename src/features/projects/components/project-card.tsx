@@ -6,13 +6,28 @@ type Props = {
     description: string;
     slug: string;
     type: string;
+    search: string;
     technologies: string[];
     metrics: {label: string; value: string}[];
     imageUrl?: string;
     imageAlt?: string;
 };
+const highlightText = (text: string, query: string) => {
+    if (!query) return text;
 
-export function ProjectCard({title, description, slug, type, technologies, metrics, imageUrl, imageAlt}: Props) {
+    const parts = text.split(new RegExp(`(${query})`, "gi"));
+
+    return parts.map((part, i) =>
+        part.toLowerCase() === query.toLowerCase() ? (
+            <span key={i} className="text-blue-400">
+                {part}
+            </span>
+        ) : (
+            part
+        )
+    );
+};
+export function ProjectCard({title, description, slug, type, technologies, metrics, imageUrl, imageAlt, search}: Props) {
     return (
         <Link
             href={`/projects/${slug}`}
@@ -51,7 +66,7 @@ export function ProjectCard({title, description, slug, type, technologies, metri
             {/* CONTENT */}
             <div className="p-6 space-y-4">
                 {/* TITLE */}
-                <h3 className="text-xl font-semibold text-white">{title}</h3>
+                <h3 className="text-xl font-semibold text-white">{highlightText(title, search)}</h3>
 
                 {/* DESCRIPTION (MORE SPACE) */}
                 <p className="text-sm text-white/70 leading-relaxed">{description}</p>

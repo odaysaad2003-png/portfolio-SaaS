@@ -236,3 +236,63 @@ We are starting implementation immediately:
 - Home → Projects Preview Section
 - System Cards UI
 - CTA Navigation to /projects
+
+---
+
+# 🧠 14. CURRENT NEXT FEATURE
+
+## 🔴 ACTIVE SPRINT: PROJECT DETAILS SYSTEM
+
+We are now moving from:
+
+> Projects Explorer Page → Project Case Study Engine
+
+---
+
+## 🎯 OBJECTIVE
+
+Build a high-level engineering case study page:
+
+---
+
+## 🧠 DESIGN PRINCIPLE
+
+- NOT a blog post
+- NOT a simple detail page
+- It is a:
+  > Engineering Case Study System
+
+---
+
+## ⚙️ DATA REQUIREMENTS
+
+Each project must support:
+
+- problem
+- approach
+- solution
+- metrics
+- images
+- technologies
+- related projects
+
+---
+
+## 🚨 RULES
+
+- Every section is a standalone component
+- Page only composes components (no heavy logic)
+- Data must stay centralized in project.data.ts
+- Must be scalable for future CMS/API
+
+---
+
+## 🟣 STATUS
+
+Current phase:
+> Planning Case Study Engine Architecture
+
+Next step:
+> Build Project Detail Page Structure (/projects/[slug])
+
+---
