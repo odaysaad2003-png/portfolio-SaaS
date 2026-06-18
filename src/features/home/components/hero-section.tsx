@@ -4,7 +4,7 @@ import React from "react";
 import {HeroText} from "./hero-text";
 import {IdentityCard} from "./identity-card";
 import {HeroBackground} from "./hero-background";
-import {ScrollHint} from "./scroll-hint";
+
 
 import {motion} from "framer-motion";
 
@@ -33,7 +33,7 @@ export function HeroSection() {
                     </div>
                 </div>
             </div>
-            <ScrollHint />
+           
         </motion.section>
     );
 }
