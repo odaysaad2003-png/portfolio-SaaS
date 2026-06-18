@@ -3,7 +3,7 @@ import {Project} from "@/types/project";
 export const projects: Project[] = [
     {
         id: "1",
-        slug: "Oday-dashboard",
+        slug: "oday-dashboard",
 
         title: "Oday dashboard",
         description: "Analytics dashboard for tracking and managing business performance.",
@@ -24,15 +24,15 @@ export const projects: Project[] = [
 
         images: [
             {
-                url: "/public/dashboard-oday/darkmood-Arabik-rtl.png",
+                url: "/dashboard-oday/darkmood-Arabik-rtl.png",
                 alt: "darkmood-Arabik-rtl overview",
             },
             {
-                url: "/public/dashboard-oday/dashpord pages-darkmood.png",
+                url: "/dashboard-oday/dashpord pages-darkmood.png",
                 alt: "Analytics charts view",
             },
             {
-                url: "/public/dashboard-oday/task-pages-lightmood.png",
+                url: "/dashboard-oday/task-pages-lightmood.png",
                 alt: "Mobile responsive view",
             },
         ],
@@ -44,9 +44,9 @@ export const projects: Project[] = [
 
     {
         id: "2",
-        slug: "Markit-Plase",
+        slug: "markit-plase",
 
-        title: "Markit Plase",
+        title: "Mini Marketplace Gaza",
         description: "Full-featured e-commerce system with advanced filtering.",
 
         problem: "Existing e-commerce solutions were slow and not scalable.",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
 
         solution: "Delivered a high-performance shopping platform.",
 
-        technologies: ["Next.js", "React", "TaielwindCSS", "TS"],
+        technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
 
         metrics: [
             {label: "Conversion Rate", value: "+55%"},
@@ -64,15 +64,15 @@ export const projects: Project[] = [
 
         images: [
             {
-                url: "/public/markit-gaza/hom-page-light.png",
+                url: "/markit-gaza/hom-page-light.png",
                 alt: "darkmood-Arabik-rtl overview",
             },
             {
-                url: "/public/markit-gaza/maneger-dashboard-dark.png",
+                url: "/markit-gaza/maneger-dashboard-dark.png",
                 alt: "Analytics charts view",
             },
             {
-                url: "/public/markit-gaza/product-dark.png",
+                url: "/markit-gaza/product-dark.png",
                 alt: "Mobile responsive view",
             },
         ],
