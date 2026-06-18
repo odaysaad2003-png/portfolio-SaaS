@@ -1,9 +1,8 @@
-import CaseStudiesGrid from "@/features/projects/components/case-studies-grid";
+
+import ProjectsPageView from "@/features/projects/components/projects-page-view";
+
 
 export default function ProjectsPage() {
-    return (
-        <div className="pt-24">
-            <CaseStudiesGrid />
-        </div>
-    );
+    
+    return <ProjectsPageView />;
 }

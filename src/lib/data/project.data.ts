@@ -82,7 +82,7 @@ export const projects: Project[] = [
         createdAt: "2026-01-10",
     },
     {
-        id: "2",
+        id: "3",
         slug: "hom-hive",
 
         title: "home hive department",
@@ -103,7 +103,7 @@ export const projects: Project[] = [
 
         images: [
             {
-                url: "/markit-gaza/hom-page-light.png",
+                url: "/homehive/about-homhive.png",
                 alt: "darkmood-Arabik-rtl overview",
             },
             {
