@@ -3,6 +3,7 @@ import CaseStudiesGrid from "@/features/projects/components/case-studies-grid";
 import {StatsSection} from "@/features/home/components/status.section";
 import {WhatIDoSection} from "@/features/home/components/what-i-do/what-i-do-section";
 import {TechStackSection} from "@/features/home/components/tech-stack/tech-stack-section";
+import {CTASection} from "@/features/home/components/cta/cta-section";
 export default function HomePage() {
     return (
         <>
@@ -11,6 +12,7 @@ export default function HomePage() {
             <WhatIDoSection />
             <TechStackSection/>
             <CaseStudiesGrid />
+            <CTASection/>
         </>
     );
 }
