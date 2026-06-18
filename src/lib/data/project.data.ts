@@ -81,4 +81,44 @@ export const projects: Project[] = [
 
         createdAt: "2026-01-10",
     },
+    {
+        id: "2",
+        slug: "hom-hive",
+
+        title: "home hive department",
+        description: "Full-featured sell system with advanced show.",
+
+        problem: "Existing e-commerce solutions were slow and not scalable.",
+
+        approach: "Implemented a fast filtering system with optimized queries.",
+
+        solution: "Delivered a high-performance shopping platform.",
+
+        technologies: ["html", "javascript", " CSS", ],
+
+        metrics: [
+            {label: "Conversion Rate", value: "+55%"},
+            {label: "Load Speed", value: "+70%"},
+        ],
+
+        images: [
+            {
+                url: "/markit-gaza/hom-page-light.png",
+                alt: "darkmood-Arabik-rtl overview",
+            },
+            {
+                url: "/markit-gaza/maneger-dashboard-dark.png",
+                alt: "Analytics charts view",
+            },
+            {
+                url: "/markit-gaza/product-dark.png",
+                alt: "Mobile responsive view",
+            },
+        ],
+
+        featured: true,
+
+        createdAt: "2026-01-10",
+    },
+    
 ];

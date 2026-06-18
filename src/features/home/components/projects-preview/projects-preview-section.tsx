@@ -38,6 +38,8 @@ export function ProjectsPreviewSection() {
                     </Link>
                 </div>
 
+               
+
                 {/* Cards Grid */}
                 <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {featuredProjects.map((project) => (
