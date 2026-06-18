@@ -23,7 +23,7 @@ export function IdentityCard() {
 
                         {/* Image Container */}
                         <div className="relative w-full h-full rounded-full overflow-hidden border border-blue-500/30 shadow-lg">
-                            <Image src="/public/profile.jpg" alt="oday Saad" fill className="object-cover" />
+                            <Image src="/public/profile.jpeg" alt="oday Saad" fill className="object-cover" />
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@ export function IdentityCard() {
                 {/* Name */}
                 <div className="text-center mt-4 space-y-1">
                     <h3 className="text-white text-xl font-semibold flex items-center justify-center gap-2">
-                        Zoheer Saad
+                        Oday Saad
                         <BadgeCheck className="text-blue-400 w-4 h-4" />
                     </h3>
                     <p className="text-white/60 text-sm">Fullstack Developer</p>
@@ -55,7 +55,7 @@ export function IdentityCard() {
 
                 {/* Tech Stack */}
                 <div className="mt-6 flex flex-wrap justify-center gap-2">
-                    {["Next.js", "TS", "Tailwind", "Node"].map((tech) => (
+                    {[ "React" ,"Next.js", "Tailwind", "Node" , "TS" ,"css" , "HTML" ,"JS" ].map((tech) => (
                         <span
                             key={tech}
                             className="text-xs px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/70"

@@ -1,6 +1,7 @@
 "use client";
 
     import {motion} from "framer-motion";
+import { span } from "framer-motion/client";
 const container = {
     hidden: {},
     show: {
@@ -29,7 +30,7 @@ export function HeroText() {
                 variants={item}
                 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-white"
             >
-                Scalable systems <span className="text-blue-400">for complex problems..</span>.
+                <span className="text-blue-400">{` FullStack  "devlober" `}</span> {` for complex problems.. `}
             </motion.h1>
 
             <motion.p variants={item} className="text-white/60 text-base md:text-lg leading-relaxed max-w-xl">
