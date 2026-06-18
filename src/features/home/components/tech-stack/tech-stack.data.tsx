@@ -1,16 +1,21 @@
+import React from "react";
+
 import {
-    Blocks,
-    Blueprint,
-    Component,
-    DatabaseZap,
-    Layers3,
-    ShieldCheck,
+    
+    Cpu,
+    Wrench,
     Sparkles,
     Waypoints,
-    Wrench,
+    ShieldCheck,
+    Database,
+    Code2,
+    Workflow,
+    GitBranch,
+    Palette,
+    Layers,
 } from "lucide-react";
+
 import {
-    SiCss3,
     SiFigma,
     SiFramer,
     SiGit,
@@ -23,6 +28,7 @@ import {
     SiTailwindcss,
     SiTypescript,
     SiVercel,
+    SiMui,
 } from "react-icons/si";
 
 export const techStackGroups = [
@@ -35,26 +41,30 @@ export const techStackGroups = [
             {name: "JavaScript", icon: <SiJavascript className="h-5 w-5" />},
             {name: "Tailwind CSS", icon: <SiTailwindcss className="h-5 w-5" />},
             {name: "HTML5", icon: <SiHtml5 className="h-5 w-5" />},
-            {name: "CSS3", icon: <SiCss3 className="h-5 w-5" />},
         ],
     },
+
     {
         category: "State & Data",
         items: [
-            {name: "Zustand", icon: <Layers3 className="h-5 w-5" />},
-            {name: "React Query", icon: <DatabaseZap className="h-5 w-5" />},
+            {name: "Zustand", icon: <Layers className="h-5 w-5" />},
+            {name: "React Query", icon: <Database className="h-5 w-5" />},
             {name: "Zod", icon: <ShieldCheck className="h-5 w-5" />},
-            {name: "REST APIs", icon: <Waypoints className="h-5 w-5" />},
+            {name: "APIs", icon: <Waypoints className="h-5 w-5" />},
         ],
     },
+
     {
         category: "UI / Motion",
         items: [
             {name: "Framer Motion", icon: <SiFramer className="h-5 w-5" />},
-            {name: "shadcn/ui", icon: <Component className="h-5 w-5" />},
-            {name: "Design Systems", icon: <Sparkles className="h-5 w-5" />},
+            {name: "shadcn/ui", icon: <Palette className="h-5 w-5" />},
+            {name: "Material UI", icon: <SiMui className="h-5 w-5" />},
+            {name: "Radix UI", icon: <Layers className="h-5 w-5" />},
+            {name: "Tailwind UI Patterns", icon: <Sparkles className="h-5 w-5" />},
         ],
     },
+
     {
         category: "Tools & Workflow",
         items: [
@@ -63,9 +73,11 @@ export const techStackGroups = [
             {name: "GitHub", icon: <SiGithub className="h-5 w-5" />},
             {name: "Vercel", icon: <SiVercel className="h-5 w-5" />},
             {name: "Figma", icon: <SiFigma className="h-5 w-5" />},
-            {name: "Architecture", icon: <Blueprint className="h-5 w-5" />},
-            {name: "Problem Solving", icon: <Blocks className="h-5 w-5" />},
-            {name: "Engineering Workflow", icon: <Wrench className="h-5 w-5" />},
+            {name: "Architecture", icon: <Cpu className="h-5 w-5" />},
+            {name: "Problem Solving", icon: <Code2 className="h-5 w-5" />},
+            {name: "Workflow", icon: <Workflow className="h-5 w-5" />},
+            {name: "Version Control", icon: <GitBranch className="h-5 w-5" />},
+            {name: "Engineering Mindset", icon: <Wrench className="h-5 w-5" />},
         ],
     },
 ];
