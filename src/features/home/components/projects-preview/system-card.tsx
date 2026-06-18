@@ -95,13 +95,7 @@ export function SystemCard({
                         ))}
                     </div>
 
-                    <Link
-                        href={`/projects/${slug}`}
-                        className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-blue-400 transition hover:text-blue-300"
-                    >
-                        View Case Study
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
+                   
                 </div>
             </article>
         </Link>
