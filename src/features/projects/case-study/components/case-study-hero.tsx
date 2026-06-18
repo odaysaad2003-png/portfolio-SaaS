@@ -8,7 +8,7 @@ type Props = {
 
 export function CaseStudyHero({data}: Props) {
     return (
-        <section className="relative overflow-hidden py-20">
+        <section className="relative overflow-hidden py-10">
             {/* Background Glow */}
             <div className="absolute inset-0 -z-10">
                 <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-500/20 blur-[120px] rounded-full" />

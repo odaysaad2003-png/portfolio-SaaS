@@ -6,7 +6,7 @@ type Props = {
 
 export function CaseStudyContext({data}: Props) {
     return (
-        <section className="relative py-20">
+        <section className="relative py-10">
             <div className="max-w-4xl mx-auto px-6 space-y-6">
                 {/* Label */}
                 <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs uppercase tracking-widest">
