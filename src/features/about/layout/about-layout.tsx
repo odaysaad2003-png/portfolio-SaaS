@@ -1,6 +1,6 @@
 // src/features/about/layout/about-layout.tsx
 
-import {AboutViewModel} from "../engine/about-mapper";
+import {AboutViewModel} from "../types/about";
 import {AboutHero} from "../components/about-hero";
 import {AboutPhilosophy} from "../components/about-philosophy";
 import {AboutSkillsSystem} from "../components/about-skills-system";

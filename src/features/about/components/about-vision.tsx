@@ -27,7 +27,7 @@ export function AboutVision({vision}: AboutVisionProps) {
 
                 <div className="mt-12 grid gap-6 sm:grid-cols-2">
                     {vision.map((goal, index) => (
-                        <AboutMotionWrapper key={goal.id} delay={index * 0.1}>
+                        <AboutMotionWrapper key={goal.phase} delay={index * 0.1}>
                             <div className="h-full rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
                                 <span className="text-xs font-semibold uppercase tracking-wide text-purple-300">
                                     {goal.phase}

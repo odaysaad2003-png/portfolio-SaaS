@@ -28,7 +28,7 @@ export function AboutTimeline({timeline}: AboutTimelineProps) {
 
                     <div className="space-y-10">
                         {timeline.map((entry, index) => (
-                            <AboutMotionWrapper key={entry.id} delay={index * 0.12}>
+                            <AboutMotionWrapper key={entry.version} delay={index * 0.12}>
                                 <div className="relative">
                                     <span
                                         aria-hidden

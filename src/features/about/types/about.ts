@@ -1,36 +1,39 @@
+// types/about.types.ts
+
 export type Principle = {
     id: string;
     title: string;
     description: string;
 };
 
+export type SkillBlock = {
+    description: string;
+    items: string[];
+};
+
 export type SkillSystem = {
-    id: string;
-    label: string; // "Frontend Systems"
-    technologies: string[];
+    category: string;
+    description: string;
+    items: string[];
 };
 
 export type TimelineEntry = {
-    version: string; // "v1.0"
-    title: string; // "Foundation"
-    description: string;
+    version: string;
     year: string;
-};
-
-export type VisionGoal = {
-    phase: string; // "Phase Next"
     title: string;
     description: string;
 };
 
-export type AboutData = {
-    identityStatement: string;
-    role: string;
-    principles: Principle[];
-    skillSystems: SkillSystem[];
-    timeline: TimelineEntry[];
-    mindsetSteps: {title: string; description: string}[];
-    vision: VisionGoal[];
+export type VisionGoal = {
+    title: string;
+    description: string;
+};
+
+export type MindsetStep = {
+    id: string;
+    step: string;
+    title: string;
+    description: string;
 };
 
 export type FeaturedProjectLink = {
@@ -49,33 +52,16 @@ export type AboutHeroData = {
         value: string;
     }[];
 };
+
 export type AboutViewModel = {
     hero: AboutHeroData;
-
-    principles: {
-        title: string;
-        description: string;
-    }[];
-
-    skillSystems: {
-        category: string;
-        items: string[];
-    }[];
-
-    timeline: {
-        year: string;
-        title: string;
-    }[];
-
+    principles: Principle[];
+    skillSystems: SkillSystem[];
+    timeline: TimelineEntry[];
     mindset: {
         title: string;
-        points: string[];
+        steps: MindsetStep[];
     };
-
-    vision: {
-        title: string;
-        description: string;
-    };
-
+    vision: VisionGoal;
     featuredProjects: FeaturedProjectLink[];
 };

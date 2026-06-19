@@ -1,33 +1,64 @@
-import {AboutViewModel, AboutHeroData, FeaturedProjectLink} from "../types/about";
+// engine/about-mapper.ts
 
-export function mapAboutData(data: any): AboutViewModel {
+import type {
+    AboutViewModel,
+    SkillSystem,
+    TimelineEntry,
+    MindsetStep,
+    FeaturedProjectLink,
+} from "@/features/about/types/about";
+import { getAboutData } from "../lib/data/about.data";
+
+type AboutRawData = ReturnType<typeof getAboutData>;
+
+export function mapAboutData(data: AboutRawData): AboutViewModel {
     return {
         hero: {
             badge: "About Me",
             identityStatement: data.identity.tagline,
             role: data.identity.role,
-            summary: `${data.identity.name} — System Architect`,
+            summary: `${data.identity.name} — System Architect & SaaS Builder`,
             stats: [
-                {label: "Projects", value: "10+"},
-                {label: "Focus", value: "SaaS Systems"},
+                {label: "Focus", value: "Systems"},
                 {label: "Stack", value: "Fullstack"},
+                {label: "Goal", value: "Scale"},
             ],
         },
 
         principles: data.principles,
 
         skillSystems: [
-            {category: "Frontend", items: data.skills.frontend},
-            {category: "Backend", items: data.skills.backend},
-            {category: "Tools", items: data.skills.tools},
+            {
+                category: "Frontend",
+                description: data.skills.frontend.description,
+                items: data.skills.frontend.items,
+            },
+            {
+                category: "Backend",
+                description: data.skills.backend.description,
+                items: data.skills.backend.items,
+            },
+            {
+                category: "Tools",
+                description: data.skills.tools.description,
+                items: data.skills.tools.items,
+            },
         ],
 
-        timeline: data.timeline,
+        timeline: data.timeline.map((t: TimelineEntry) => ({
+            version: t.version,
+            year: t.year,
+            title: t.title,
+            description: t.description,
+        })),
 
-        mindset: data.mindset,
+        mindset: {
+            title: "Engineering Mindset",
+            steps: data.mindsetSteps as MindsetStep[],
+        },
 
         vision: data.vision,
 
-        featuredProjects: data.featuredProjects,
+        featuredProjects: data.featuredProjects as FeaturedProjectLink[],
     };
 }
