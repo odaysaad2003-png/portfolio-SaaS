@@ -1,6 +1,6 @@
 // src/features/about/components/about-skills-system.tsx
 
-import {SkillSystem} from "@/types/about";
+import {SkillSystem} from "@/features/about/types/about";
 import {AboutMotionWrapper} from "./about-motion-wrapper";
 
 type AboutSkillsSystemProps = {

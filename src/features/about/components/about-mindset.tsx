@@ -1,7 +1,7 @@
 // src/features/about/components/about-mindset.tsx
 
-import {MindsetStep} from "@/types/about";
-import {AboutMotionWrapper} from "./about-motion-wrapper";
+import {MindsetStep} from "@/features/about/types/about";
+import {AboutMotionWrapper} from "./about-motion-wrapper"; 
 
 type AboutMindsetProps = {
     mindset: MindsetStep[];

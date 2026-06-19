@@ -1,6 +1,6 @@
 // src/features/about/components/about-timeline.tsx
 
-import {TimelineEntry} from "@/types/about";
+import {TimelineEntry} from "@/features/about/types/about";
 import {AboutMotionWrapper} from "./about-motion-wrapper";
 
 type AboutTimelineProps = {

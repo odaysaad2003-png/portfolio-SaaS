@@ -2,7 +2,7 @@
 
 import type {Metadata} from "next";
 
-import {getAboutData} from "@/lib/data/about.data";
+import {getAboutData} from "@/features/about/lib/data/about.data";
 import {mapAboutData} from "@/features/about/engine/about-mapper";
 import {AboutLayout} from "@/features/about/layout/about-layout";
 

@@ -1,6 +1,6 @@
 // src/features/about/components/about-hero.tsx
 
-import {AboutHeroData} from "@/types/about";
+import {AboutHeroData} from "@/features/about/types/about";
 import {AboutMotionWrapper} from "./about-motion-wrapper";
 
 type AboutHeroProps = {

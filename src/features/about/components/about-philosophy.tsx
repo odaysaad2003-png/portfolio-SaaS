@@ -1,6 +1,6 @@
 // src/features/about/components/about-philosophy.tsx
 
-import {Principle} from "@/types/about";
+import {Principle} from "@/features/about/types/about";
 import {AboutMotionWrapper} from "./about-motion-wrapper";
 
 type AboutPhilosophyProps = {

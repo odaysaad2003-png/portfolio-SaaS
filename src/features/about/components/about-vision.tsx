@@ -1,6 +1,6 @@
 // src/features/about/components/about-vision.tsx
 
-import {VisionGoal} from "@/types/about";
+import {VisionGoal} from "@/features/about/types/about";
 import {AboutMotionWrapper} from "./about-motion-wrapper";
 
 type AboutVisionProps = {
