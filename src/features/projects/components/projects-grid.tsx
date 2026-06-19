@@ -44,20 +44,19 @@ export function ProjectsGrid({projects}: Props) {
         >
             {projects.map((project) => (
                 <motion.div key={project.id} variants={item}>
-                     <ProjectCard
+                    <ProjectCard
                         key={project.id}
                         title={project.title}
                         description={project.description}
                         slug={project.slug}
-                        type={project.type}
                         technologies={project.technologies}
                         metrics={project.metrics}
                         imageUrl={project.images?.[0]?.url}
                         imageAlt={project.images?.[0]?.alt}
-                         search={project.title}                />
+                        search={project.title}
+                         type={""}                                             />
                 </motion.div>
             ))}
-           
         </motion.div>
     );
 }
