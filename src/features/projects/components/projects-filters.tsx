@@ -1,17 +1,18 @@
 type Props = {
     search: string;
-    type: string;
+    category: string;
     tech: string;
+
     onSearchChange: (v: string) => void;
-    onTypeChange: (v: string) => void;
+    onCategoryChange: (v: string) => void;
     onTechChange: (v: string) => void;
 };
 
 const techOptions = ["all", "React", "Next.js", "JavaScript", "TypeScript", "CSS"];
 
-const typeOptions = ["all", "SaaS System", "Commerce System", "Productivity System"];
+const categoryOptions = ["all", "frontend", "fullstack", "backend"];
 
-export function ProjectsFilters({search, type, tech, onSearchChange, onTypeChange, onTechChange}: Props) {
+export function ProjectsFilters({search, category, tech, onSearchChange, onCategoryChange, onTechChange}: Props) {
     return (
         <div className="space-y-6">
             {/* SEARCH */}
@@ -23,7 +24,6 @@ export function ProjectsFilters({search, type, tech, onSearchChange, onTypeChang
             />
 
             {/* TECH CHIPS */}
-
             <div className="flex flex-wrap gap-2">
                 {techOptions.map((t) => (
                     <button
@@ -41,21 +41,21 @@ export function ProjectsFilters({search, type, tech, onSearchChange, onTypeChang
                 ))}
             </div>
 
-            {/* TYPE CHIPS */}
+            {/* CATEGORY CHIPS */}
             <div className="flex flex-wrap gap-2">
-                {typeOptions.map((t) => (
+                {categoryOptions.map((c) => (
                     <button
-                        key={t}
-                        onClick={() => onTypeChange(t)}
+                        key={c}
+                        onClick={() => onCategoryChange(c)}
                         className={`px-3 py-1 rounded-full text-sm border transition-all duration-200
-  ${
-      tech === t
-          ? "bg-blue-500 text-white border-blue-400 shadow-lg scale-105"
-          : "bg-white/5 text-white/60 border-white/10 hover:bg-white/10"
-  }
-`}
+              ${
+                  category === c
+                      ? "bg-purple-500 text-white border-purple-400 shadow-lg scale-105"
+                      : "bg-white/5 text-white/60 border-white/10 hover:bg-white/10"
+              }
+            `}
                     >
-                        {t}
+                        {c}
                     </button>
                 ))}
             </div>

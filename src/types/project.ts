@@ -1,3 +1,5 @@
+export type ProjectCategory = "frontend" | "fullstack" | "backend";
+
 export type ProjectImage = {
     url: string;
     alt?: string;
@@ -20,15 +22,17 @@ export type Project = {
     solution: string;
 
     technologies: string[];
-
     metrics: ProjectMetric[];
-
-    images: ProjectImage[]; // ✅ UPDATED
+    images: ProjectImage[];
 
     featured?: boolean;
 
     createdAt: string;
+
     context?: string;
     architecture?: string[];
     tags?: string[];
+
+    // ✅ NEW FIELD
+    category: ProjectCategory;
 };

@@ -40,6 +40,7 @@ export const projects: Project[] = [
         featured: true,
 
         createdAt: "2026-01-01",
+        category: "frontend",
     },
 
     {
@@ -80,6 +81,7 @@ export const projects: Project[] = [
         featured: true,
 
         createdAt: "2026-01-10",
+        category: "frontend",
     },
     {
         id: "3",
@@ -94,7 +96,7 @@ export const projects: Project[] = [
 
         solution: "Delivered a high-performance shopping platform.",
 
-        technologies: ["html", "javascript", " CSS", ],
+        technologies: ["html", "javascript", " CSS"],
 
         metrics: [
             {label: "Conversion Rate", value: "+55%"},
@@ -119,6 +121,6 @@ export const projects: Project[] = [
         featured: true,
 
         createdAt: "2026-01-10",
+        category: "frontend",
     },
-    
 ];
