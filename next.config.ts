@@ -1,9 +1,7 @@
-const nextConfig = {
-    experimental: {
-        turbo: {
-            rules: {},
-        },
-    },
+import type {NextConfig} from "next";
+
+const nextConfig: NextConfig = {
+    reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;

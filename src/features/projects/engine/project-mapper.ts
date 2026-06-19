@@ -1,4 +1,4 @@
-import {Project} from "../types/project.types";
+import {Project} from "../../../types/project";
 
 export type CaseStudy = {
     title: string;
