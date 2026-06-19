@@ -1,12 +1,20 @@
-export default function AboutPage() {
-    return (
-        <div className="pt-24 max-w-3xl mx-auto px-6 space-y-6">
-            <h1 className="text-4xl font-bold">About Me</h1>
+// src/app/(public)/about/page.tsx
 
-            <p className="text-muted-foreground leading-relaxed">
-                I’m a Fullstack Developer focused on building scalable systems, SaaS applications, and
-                architecture-driven web platforms.
-            </p>
-        </div>
-    );
+import type {Metadata} from "next";
+
+import {getAboutData} from "@/lib/data/about.data";
+import {mapAboutData} from "@/features/about/engine/about-mapper";
+import {AboutLayout} from "@/features/about/layout/about-layout";
+
+export const metadata: Metadata = {
+    title: "About — System Architect & SaaS Builder",
+    description:
+        "How I think about systems, architecture, and product engineering.",
+};
+
+export default function AboutPage() {
+    const aboutData = getAboutData();
+    const data = mapAboutData(aboutData);
+
+    return <AboutLayout data={data} />;
 }
