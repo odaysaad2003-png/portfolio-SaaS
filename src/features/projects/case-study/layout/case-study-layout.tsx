@@ -6,43 +6,55 @@ import {CaseStudyContext} from "../components/case-study-context";
 import {CaseStudySolution} from "../components/case-study-solution";
 import {CaseStudyArchitecture} from "../components/case-study-architecture";
 import {CaseStudyMetrics} from "../components/case-study-metrics";
-import {CaseStudyMotionWrapper} from "../components/case-study-motion-wrapper";
 import {CaseStudyImages} from "../components/case-study-images";
+import {CaseStudyMotionWrapper} from "../components/case-study-motion-wrapper";
+import {CaseStudyNavigation} from "../components/case-study-navigation";
+
+import {getNextProject, getPreviousProject} from "@/lib/data/service";
 
 type Props = {
     data: CaseStudy;
+    slug: string; // 👈 مهم للنفيجيشن
 };
 
-export function CaseStudyLayout({data}: Props) {
-   return (
-       <main className="relative min-h-screen bg-gradient-to-b from-[#0B1220] to-black text-white">
-           <CaseStudyMotionWrapper>
-               <CaseStudyHero data={data} />
-           </CaseStudyMotionWrapper>
-           <CaseStudyMotionWrapper>
-               <CaseStudyImages data={data} />
-           </CaseStudyMotionWrapper>
-           <div className="space-y-32 pb-32">
-               <CaseStudyMotionWrapper>
-                   <CaseStudyProblem data={data} />
-               </CaseStudyMotionWrapper>
+export function CaseStudyLayout({data, slug}: Props) {
+    const next = getNextProject(slug);
+    const previous = getPreviousProject(slug);
 
-               <CaseStudyMotionWrapper>
-                   <CaseStudyContext data={data} />
-               </CaseStudyMotionWrapper>
+    return (
+        <main className="relative min-h-screen bg-gradient-to-b from-[#0B1220] to-black text-white">
+            <CaseStudyMotionWrapper>
+                <CaseStudyHero data={data} />
+            </CaseStudyMotionWrapper>
 
-               <CaseStudyMotionWrapper>
-                   <CaseStudySolution data={data} />
-               </CaseStudyMotionWrapper>
+            <CaseStudyMotionWrapper>
+                <CaseStudyImages data={data} />
+            </CaseStudyMotionWrapper>
 
-               <CaseStudyMotionWrapper>
-                   <CaseStudyArchitecture data={data} />
-               </CaseStudyMotionWrapper>
+            <div className="space-y-32 pb-32">
+                <CaseStudyMotionWrapper>
+                    <CaseStudyProblem data={data} />
+                </CaseStudyMotionWrapper>
 
-               <CaseStudyMotionWrapper>
-                   <CaseStudyMetrics data={data} />
-               </CaseStudyMotionWrapper>
-           </div>
-       </main>
-   );
+                <CaseStudyMotionWrapper>
+                    <CaseStudyContext data={data} />
+                </CaseStudyMotionWrapper>
+
+                <CaseStudyMotionWrapper>
+                    <CaseStudySolution data={data} />
+                </CaseStudyMotionWrapper>
+
+                <CaseStudyMotionWrapper>
+                    <CaseStudyArchitecture data={data} />
+                </CaseStudyMotionWrapper>
+
+                <CaseStudyMotionWrapper>
+                    <CaseStudyMetrics data={data} />
+                </CaseStudyMotionWrapper>
+            </div>
+
+            {/* 🔥 Navigation moved INSIDE layout */}
+            <CaseStudyNavigation next={next} previous={previous} />
+        </main>
+    );
 }
