@@ -12,6 +12,9 @@ import {CaseStudyNavigation} from "../components/case-study-navigation";
 
 import {getNextProject, getPreviousProject} from "@/lib/data/service";
 
+import {getRelatedProjects} from "@/lib/data/service";
+import {CaseStudyRelatedProjects} from "../components/case-study-related-projects";
+
 type Props = {
     data: CaseStudy;
     slug: string; // 👈 مهم للنفيجيشن
@@ -20,6 +23,8 @@ type Props = {
 export function CaseStudyLayout({data, slug}: Props) {
     const next = getNextProject(slug);
     const previous = getPreviousProject(slug);
+
+    const related = getRelatedProjects(slug);
 
     return (
         <main className="relative min-h-screen bg-gradient-to-b from-[#0B1220] to-black text-white">
@@ -55,6 +60,7 @@ export function CaseStudyLayout({data, slug}: Props) {
 
             {/* 🔥 Navigation moved INSIDE layout */}
             <CaseStudyNavigation next={next} previous={previous} />
+            <CaseStudyRelatedProjects projects={related} />
         </main>
     );
 }

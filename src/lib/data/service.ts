@@ -1,5 +1,8 @@
 import {projects} from "./project.data";
 
+
+import {getSmartRelatedProjects} from "@/features/projects/engine/related-projects";
+
 export function getProjects() {
     return projects;
 }
@@ -32,21 +35,8 @@ export function getNextProject(slug: string) {
     return projects[nextIndex];
 }
 
+
+
 export function getRelatedProjects(slug: string) {
-    const currentProject = getProjectBySlug(slug);
-
-    if (!currentProject) return [];
-
-    return projects
-    .filter((project) => project.slug !== slug)
-    .filter((project) => {
-        const hasSharedTechnology = project.technologies.some((technology) =>
-            currentProject.technologies.includes(technology)
-        );
-
-        const hasSharedTag = project.tags?.some((tag) => currentProject.tags?.includes(tag)) ?? false;
-
-        return hasSharedTechnology || hasSharedTag;
-    })
-    .slice(0, 3);
+    return getSmartRelatedProjects(slug);
 }
