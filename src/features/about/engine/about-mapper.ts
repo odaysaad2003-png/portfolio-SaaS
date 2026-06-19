@@ -1,64 +1,25 @@
-export type AboutViewModel = {
-    hero: {
-        name: string;
-        role: string;
-        tagline: string;
-    };
-
-    principles: {
-        title: string;
-        description: string;
-    }[];
-
-    skillSystems: {
-        category: string;
-        items: string[];
-    }[];
-
-    timeline: {
-        year: string;
-        title: string;
-    }[];
-
-    mindset: {
-        title: string;
-        points: string[];
-    };
-
-    vision: {
-        title: string;
-        description: string;
-    };
-
-    featuredProjects: {
-        title: string;
-        slug: string;
-    }[];
-};
+import {AboutViewModel, AboutHeroData, FeaturedProjectLink} from "../types/about";
 
 export function mapAboutData(data: any): AboutViewModel {
     return {
         hero: {
-            name: data.identity.name,
+            badge: "About Me",
+            identityStatement: data.identity.tagline,
             role: data.identity.role,
-            tagline: data.identity.tagline,
+            summary: `${data.identity.name} — System Architect`,
+            stats: [
+                {label: "Projects", value: "10+"},
+                {label: "Focus", value: "SaaS Systems"},
+                {label: "Stack", value: "Fullstack"},
+            ],
         },
 
         principles: data.principles,
 
         skillSystems: [
-            {
-                category: "Frontend",
-                items: data.skills.frontend,
-            },
-            {
-                category: "Backend",
-                items: data.skills.backend,
-            },
-            {
-                category: "Tools",
-                items: data.skills.tools,
-            },
+            {category: "Frontend", items: data.skills.frontend},
+            {category: "Backend", items: data.skills.backend},
+            {category: "Tools", items: data.skills.tools},
         ],
 
         timeline: data.timeline,

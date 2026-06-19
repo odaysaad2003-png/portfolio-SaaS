@@ -1,8 +1,7 @@
 // src/features/about/components/about-cta.tsx
 
 import Link from "next/link";
-
-import {FeaturedProjectLink} from "../engine/about-mapper";
+import {FeaturedProjectLink} from "@/features/about/types/about";
 import {AboutMotionWrapper} from "./about-motion-wrapper";
 
 type AboutCtaProps = {

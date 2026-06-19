@@ -32,3 +32,50 @@ export type AboutData = {
     mindsetSteps: {title: string; description: string}[];
     vision: VisionGoal[];
 };
+
+export type FeaturedProjectLink = {
+    title: string;
+    slug: string;
+    description?: string;
+};
+
+export type AboutHeroData = {
+    badge: string;
+    identityStatement: string;
+    role: string;
+    summary: string;
+    stats: {
+        label: string;
+        value: string;
+    }[];
+};
+export type AboutViewModel = {
+    hero: AboutHeroData;
+
+    principles: {
+        title: string;
+        description: string;
+    }[];
+
+    skillSystems: {
+        category: string;
+        items: string[];
+    }[];
+
+    timeline: {
+        year: string;
+        title: string;
+    }[];
+
+    mindset: {
+        title: string;
+        points: string[];
+    };
+
+    vision: {
+        title: string;
+        description: string;
+    };
+
+    featuredProjects: FeaturedProjectLink[];
+};
