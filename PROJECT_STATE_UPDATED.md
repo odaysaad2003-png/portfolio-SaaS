@@ -1151,3 +1151,17 @@ src/
   navy/black SaaS theme; adjust if the project has a shared theme token.
 - Contact form does not yet send email — explicitly marked frontend-only
   per the brief.
+
+
+## ✅ Floating Actions System
+
+Completed:
+- WhatsApp floating contact button (inline SVG icon, no lucide brand icon)
+- Scroll to top button (lucide ArrowUp, AnimatePresence)
+- Floating actions config layer (`floating-actions.config.ts`)
+- `useScrollThreshold` hook (passive scroll listener, cleans up on unmount)
+- `useFloatingActions` hook composing config + scroll state
+- `FloatingActionsProvider` context (shared whatsappUrl/scrollToTop across the app)
+- Layout-level integration (single mount, not per-page)
+- Framer Motion entrance, pulse glow, and visibility animations
+- Accessible buttons/links (aria-label, focus-visible ring)
