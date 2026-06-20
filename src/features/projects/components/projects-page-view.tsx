@@ -17,14 +17,18 @@ export function ProjectsPageView() {
     const filteredProjects = useMemo(() => {
         return projects.filter((project) => {
             const matchesSearch = project.title.toLowerCase().includes(search.toLowerCase());
-
             const matchesCategory = category === "all" || project.category === category;
-
             const matchesTech = tech === "all" || project.technologies.includes(tech);
 
             return matchesSearch && matchesCategory && matchesTech;
         });
     }, [search, category, tech]);
+
+    const handleClearFilters = () => {
+        setSearch("");
+        setCategory("all");
+        setTech("all");
+    };
 
     return (
         <motion.section
@@ -34,15 +38,12 @@ export function ProjectsPageView() {
             className="min-h-screen py-14"
         >
             <div className="mx-auto max-w-6xl px-4 space-y-10">
-                {/* HEADER + FILTERS */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
-                    {/* HEADER */}
                     <div className="space-y-3 max-w-2xl">
                         <ProjectsHeader />
-                        <p className="text-sm text-white/50">Showing {filteredProjects.length} systems</p>
+                        <p className="text-sm text-muted-foreground">Showing {filteredProjects.length} systems</p>
                     </div>
 
-                    {/* FILTERS */}
                     <div className="flex flex-col gap-4 lg:items-end">
                         <ProjectsFilters
                             search={search}
@@ -55,11 +56,9 @@ export function ProjectsPageView() {
                     </div>
                 </div>
 
-                {/* DIVIDER */}
-                <div className="h-px w-full bg-white/5" />
+                <div className="h-px w-full bg-border" />
 
-                {/* GRID */}
-                <ProjectsGrid projects={filteredProjects} />
+                <ProjectsGrid projects={filteredProjects} onClearFilters={handleClearFilters} />
             </div>
         </motion.section>
     );

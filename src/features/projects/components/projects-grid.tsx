@@ -1,9 +1,8 @@
 import {ProjectCard} from "@/features/projects/components/project-card";
 import {motion} from "framer-motion";
 import type {Project} from "@/types/project";
-import Link from "next/link";
 
-
+import {EmptyState} from "@/components/shared/empty-state";
 
 const container = {
     hidden: {opacity: 0},
@@ -18,22 +17,22 @@ const item = {
     hidden: {opacity: 0, y: 15},
     show: {opacity: 1, y: 0},
 };
+
 type Props = {
     projects: Project[];
+    onClearFilters?: () => void;
 };
 
-export function ProjectsGrid({projects}: Props) {
-   if (projects.length === 0) {
-       return (
-           <div className="text-center py-20 space-y-3">
-               <p className="text-white/60">No systems found</p>
-               <p className="text-xs text-white/40">Try changing filters or search query</p>
-               <Link href="/">
-                   <button> Go Home</button>
-               </Link>
-           </div>
-       );
-   }
+export function ProjectsGrid({projects, onClearFilters}: Props) {
+    if (projects.length === 0) {
+        return (
+            <EmptyState
+                title="No projects found"
+                description="Try adjusting your filters or search query."
+                action={onClearFilters ? {label: "Clear filters", onClick: onClearFilters} : undefined}
+            />
+        );
+    }
 
     return (
         <motion.div

@@ -20,7 +20,7 @@ export function ProjectsFilters({search, category, tech, onSearchChange, onCateg
                 value={search}
                 onChange={(e) => onSearchChange(e.target.value)}
                 placeholder="Search systems..."
-                className="w-full md:w-96 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-white outline-none"
+                className="w-full md:w-96 rounded-xl border border-border bg-card px-4 py-2 text-foreground placeholder:text-muted-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
             />
 
             {/* TECH CHIPS */}
@@ -33,7 +33,7 @@ export function ProjectsFilters({search, category, tech, onSearchChange, onCateg
               ${
                   tech === t
                       ? "bg-blue-500 text-white border-blue-400 shadow-lg scale-105"
-                      : "bg-white/5 text-white/60 border-white/10 hover:bg-white/10"
+                      : "bg-muted text-muted-foreground border-border hover:bg-accent hover:text-accent-foreground"
               }`}
                     >
                         {t}
@@ -51,7 +51,7 @@ export function ProjectsFilters({search, category, tech, onSearchChange, onCateg
               ${
                   category === c
                       ? "bg-purple-500 text-white border-purple-400 shadow-lg scale-105"
-                      : "bg-white/5 text-white/60 border-white/10 hover:bg-white/10"
+                      : "bg-muted text-muted-foreground border-border hover:bg-accent hover:text-accent-foreground"
               }
             `}
                     >

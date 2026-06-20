@@ -5,6 +5,8 @@ import {AnimatePresence, motion} from "framer-motion";
 import Image from "next/image";
 import {CaseStudy} from "../../engine/project-mapper";
 
+import {EmptyState} from "@/components/shared/empty-state";
+
 type Props = {
     data: CaseStudy;
 };
@@ -17,7 +19,28 @@ type SelectedImage = {
 export function CaseStudyImages({data}: Props) {
     const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(null);
 
-    if (!data.images?.length) return null;
+    if (!data.images?.length) {
+        return (
+            <section className="relative py-28">
+                <div className="mx-auto max-w-6xl space-y-10 px-6">
+                    <motion.div
+                        initial={{opacity: 0, y: 20}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={{once: true, amount: 0.4}}
+                        transition={{duration: 0.5}}
+                        className="inline-flex items-center rounded-full border border-border bg-muted px-3 py-1 text-xs uppercase tracking-widest text-muted-foreground"
+                    >
+                        Visual Overview
+                    </motion.div>
+
+                    <EmptyState
+                        title="No visuals available"
+                        description="This case study focuses on architecture and implementation details."
+                    />
+                </div>
+            </section>
+        );
+    }
 
     const [featured, ...rest] = data.images;
 
@@ -31,7 +54,7 @@ export function CaseStudyImages({data}: Props) {
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true, amount: 0.4}}
                         transition={{duration: 0.5}}
-                        className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs uppercase tracking-widest text-white/60"
+                        className="inline-flex items-center rounded-full border border-border bg-muted px-3 py-1 text-xs uppercase tracking-widest text-muted-foreground"
                     >
                         Visual Overview
                     </motion.div>
@@ -44,9 +67,9 @@ export function CaseStudyImages({data}: Props) {
                         transition={{duration: 0.6, delay: 0.05}}
                         className="space-y-4"
                     >
-                        <h2 className="text-3xl font-bold md:text-4xl">Project Screenshots</h2>
+                        <h2 className="text-3xl font-bold md:text-4xl text-foreground">Project Screenshots</h2>
 
-                        <p className="max-w-2xl text-white/60">
+                        <p className="max-w-2xl text-muted-foreground">
                             A visual walkthrough of the product experience, interface structure, and core system
                             screens.
                         </p>
@@ -60,7 +83,7 @@ export function CaseStudyImages({data}: Props) {
                         whileInView={{opacity: 1, y: 0, scale: 1}}
                         viewport={{once: true, amount: 0.25}}
                         transition={{duration: 0.7, ease: "easeOut"}}
-                        className="group relative w-full overflow-hidden rounded-2xl border border-white/10 text-left"
+                        className="group relative w-full overflow-hidden rounded-2xl border border-border text-left"
                     >
                         <Image
                             src={featured.url}
@@ -93,7 +116,7 @@ export function CaseStudyImages({data}: Props) {
                                         delay: index * 0.12,
                                         ease: "easeOut",
                                     }}
-                                    className="group relative overflow-hidden rounded-xl border border-white/10 text-left"
+                                    className="group relative overflow-hidden rounded-xl border border-border text-left"
                                 >
                                     <Image
                                         src={image.url}
@@ -101,8 +124,6 @@ export function CaseStudyImages({data}: Props) {
                                         className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-110"
                                         width={4000}
                                         height={4000}
-
-
                                     />
 
                                     <div className="absolute inset-0 bg-black/0 transition group-hover:bg-black/25" />
