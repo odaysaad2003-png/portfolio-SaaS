@@ -1,7 +1,6 @@
 import React from "react";
-
+import {SiBootstrap} from "react-icons/si";
 import {
-    
     Cpu,
     Wrench,
     Sparkles,
@@ -13,6 +12,7 @@ import {
     GitBranch,
     Palette,
     Layers,
+    Bold,
 } from "lucide-react";
 
 import {
@@ -41,6 +41,7 @@ export const techStackGroups = [
             {name: "JavaScript", icon: <SiJavascript className="h-5 w-5" />},
             {name: "Tailwind CSS", icon: <SiTailwindcss className="h-5 w-5" />},
             {name: "HTML5", icon: <SiHtml5 className="h-5 w-5" />},
+            {name: "Bootstrab", icon: <SiBootstrap className="h-5 w-5 " />},
         ],
     },
 
