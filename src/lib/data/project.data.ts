@@ -41,6 +41,8 @@ export const projects: Project[] = [
 
         createdAt: "2026-01-01",
         category: "frontend",
+        liveDemoUrl: "https://dashpord-project.vercel.app",
+        githubUrl: "https://github.com/odaysaad2003-png/Dashpord--project",
     },
 
     {
@@ -82,6 +84,8 @@ export const projects: Project[] = [
 
         createdAt: "2026-01-10",
         category: "frontend",
+        liveDemoUrl: "https://gaza-marketplace.vercel.app",
+        githubUrl: "https://github.com/your-username/oday-dashboard",
     },
     {
         id: "3",
@@ -122,6 +126,8 @@ export const projects: Project[] = [
 
         createdAt: "2026-01-10",
         category: "frontend",
+        liveDemoUrl: "https://odaysaad2003-png.github.io/HomHiv-partment-Project/",
+        githubUrl: "https://github.com/odaysaad2003-png/HomHiv-partment-Project",
     },
 
     {
@@ -155,6 +161,8 @@ export const projects: Project[] = [
 
         createdAt: "2026-01-10",
         category: "frontend",
+        liveDemoUrl: "https://github.com/odaysaad2003-png/CRUDS_Project",
+        githubUrl: "https://github.com/odaysaad2003-png/CRUDS_Project",
     },
     {
         id: "5",
@@ -169,7 +177,7 @@ export const projects: Project[] = [
 
         solution: "Delivered a high-performance shopping platform.",
 
-        technologies: ["html", "JavaScript", "CSS" , "AOS"],
+        technologies: ["html", "JavaScript", "CSS", "AOS"],
 
         metrics: [
             {label: "Conversion Rate", value: "+35%"},
@@ -199,5 +207,54 @@ export const projects: Project[] = [
 
         createdAt: "2026-01-10",
         category: "frontend",
+        liveDemoUrl: "https://odaysaad2003-png.github.io/Bulding-Project/",
+        githubUrl: "https://github.com/odaysaad2003-png/Bulding-Project",
+    },
+    {
+        id: "5",
+        slug: "bulding-progict",
+
+        title: "Puilding",
+        description: "Full-featured sell system with advanced show.",
+
+        problem: "Existing portfolio solutions were slow and not scalable.",
+
+        approach: "Implemented a fast filtering system with optimized queries.",
+
+        solution: "show my skils",
+
+        technologies: ["html", "JavaScript", "CSS", "AOS"],
+
+        metrics: [
+            {label: "Conversion Rate", value: "+35%"},
+            {label: "Load Speed", value: "+40%"},
+        ],
+
+        images: [
+            {
+                url: "/old-portfolio/about.me.png",
+                alt: "about-photo",
+            },
+            {
+                url: "/old-portfolio/hom-page.png",
+                alt: "home-photo",
+            },
+            {
+                url: "/old-portfolio/servise.png",
+                alt: "services-photo",
+            },
+            {
+                url: "/old-portfolio/skils.png",
+                alt: "skils-photo",
+            },
+            
+        ],
+
+        featured: true,
+
+        createdAt: "2026-01-10",
+        category: "frontend",
+        liveDemoUrl: "https://odaysaad2003-png.github.io/portfolio/",
+        githubUrl: "https://github.com/odaysaad2003-png/portfolio",
     },
 ];

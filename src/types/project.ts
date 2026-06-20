@@ -33,6 +33,9 @@ export type Project = {
     architecture?: string[];
     tags?: string[];
 
-    // ✅ NEW FIELD
     category: ProjectCategory;
+
+    // ✅ NEW LINKS
+    liveDemoUrl?: string;
+    githubUrl?: string;
 };
