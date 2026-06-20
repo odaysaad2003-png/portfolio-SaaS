@@ -5,8 +5,6 @@ import {useState, type FormEvent} from "react";
 import type {ContactFormData} from "@/features/contact/types/contact";
 import {contactFormSchema, type ContactFormValues} from "@/features/contact/lib/schema/contact-form.schema";
 import {ContactMotionWrapper} from "@/features/contact/components/contact-motion-wrapper";
-
-
 import {submitContactMessage} from "@/features/contact/actions/submit-contact-message";
 
 type ContactFormProps = {
@@ -22,76 +20,85 @@ export function ContactForm({data}: ContactFormProps) {
     const [submitMessage, setSubmitMessage] = useState("");
     const [errors, setErrors] = useState<FormErrors>({});
 
- async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-     event.preventDefault();
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
 
-     const form = event.currentTarget;
-     const formData = new FormData(form);
+        const form = event.currentTarget;
+        const formData = new FormData(form);
 
-     const values = {
-         name: String(formData.get("name") ?? ""),
-         email: String(formData.get("email") ?? ""),
-         projectType: String(formData.get("projectType") ?? ""),
-         budgetRange: String(formData.get("budgetRange") ?? "") || undefined,
-         message: String(formData.get("message") ?? ""),
-     };
+        const values = {
+            name: String(formData.get("name") ?? ""),
+            email: String(formData.get("email") ?? ""),
+            projectType: String(formData.get("projectType") ?? ""),
+            budgetRange: String(formData.get("budgetRange") ?? "") || undefined,
+            message: String(formData.get("message") ?? ""),
+        };
 
-     const result = contactFormSchema.safeParse(values);
+        const result = contactFormSchema.safeParse(values);
 
-     if (!result.success) {
-         const fieldErrors: FormErrors = {};
+        if (!result.success) {
+            const fieldErrors: FormErrors = {};
 
-         result.error.issues.forEach((issue) => {
-             const fieldName = issue.path[0] as keyof ContactFormValues;
+            result.error.issues.forEach((issue) => {
+                const fieldName = issue.path[0] as keyof ContactFormValues;
 
-             if (!fieldErrors[fieldName]) {
-                 fieldErrors[fieldName] = issue.message;
-             }
-         });
+                if (!fieldErrors[fieldName]) {
+                    fieldErrors[fieldName] = issue.message;
+                }
+            });
 
-         setErrors(fieldErrors);
-         setStatus("idle");
-         setSubmitMessage("");
-         return;
-     }
+            setErrors(fieldErrors);
+            setStatus("idle");
+            setSubmitMessage("");
+            return;
+        }
 
-     setErrors({});
-     setStatus("submitting");
-     setSubmitMessage("");
+        setErrors({});
+        setStatus("submitting");
+        setSubmitMessage("");
 
-     const submitResult = await submitContactMessage(result.data);
+        const submitResult = await submitContactMessage(result.data);
 
-     if (!submitResult.success) {
-         setStatus("error");
-         setSubmitMessage(submitResult.message);
-         return;
-     }
+        if (!submitResult.success) {
+            setStatus("error");
+            setSubmitMessage(submitResult.message);
+            return;
+        }
 
-     setStatus("submitted");
-     setSubmitMessage(submitResult.message);
-     form.reset();
- }
+        setStatus("submitted");
+        setSubmitMessage(submitResult.message);
+        form.reset();
+    }
+
+    const inputClassName =
+        "mt-2 w-full rounded-lg border border-border bg-background/70 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:border-primary/60 focus:ring-2 focus:ring-primary/15";
+
+    const labelClassName = "text-sm font-medium text-foreground";
+
+    const errorClassName = "mt-2 text-xs text-red-500 dark:text-red-300";
 
     return (
-        <section className="px-6 py-20">
+        <section className="bg-background px-6 py-20 text-foreground">
             <div className="mx-auto max-w-3xl">
                 <ContactMotionWrapper>
-                    <span className="text-xs font-medium uppercase tracking-wide text-blue-300">Send a Message</span>
+                    <span className="text-xs font-medium uppercase tracking-wide text-primary">Send a Message</span>
 
-                    <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">{data.title}</h2>
+                    <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+                        {data.title}
+                    </h2>
 
-                    <p className="mt-3 text-white/55">{data.description}</p>
+                    <p className="mt-3 text-muted-foreground">{data.description}</p>
                 </ContactMotionWrapper>
 
                 <ContactMotionWrapper delay={0.1}>
                     <form
                         onSubmit={handleSubmit}
                         noValidate
-                        className="mt-10 space-y-6 rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur sm:p-8"
+                        className="mt-10 space-y-6 rounded-2xl border border-border bg-card/75 p-6 text-card-foreground shadow-sm backdrop-blur sm:p-8"
                     >
                         <div className="grid gap-6 sm:grid-cols-2">
                             <div>
-                                <label htmlFor="name" className="text-sm font-medium text-white/80">
+                                <label htmlFor="name" className={labelClassName}>
                                     Name
                                 </label>
 
@@ -103,18 +110,18 @@ export function ContactForm({data}: ContactFormProps) {
                                     placeholder="Your name"
                                     aria-invalid={Boolean(errors.name)}
                                     aria-describedby={errors.name ? "name-error" : undefined}
-                                    className="mt-2 w-full rounded-lg border border-white/10 bg-black/30 px-4 py-2.5 text-sm text-white placeholder-white/30 outline-none transition focus:border-blue-400/60"
+                                    className={inputClassName}
                                 />
 
                                 {errors.name && (
-                                    <p id="name-error" className="mt-2 text-xs text-red-300">
+                                    <p id="name-error" className={errorClassName}>
                                         {errors.name}
                                     </p>
                                 )}
                             </div>
 
                             <div>
-                                <label htmlFor="email" className="text-sm font-medium text-white/80">
+                                <label htmlFor="email" className={labelClassName}>
                                     Email
                                 </label>
 
@@ -126,11 +133,11 @@ export function ContactForm({data}: ContactFormProps) {
                                     placeholder="you@company.com"
                                     aria-invalid={Boolean(errors.email)}
                                     aria-describedby={errors.email ? "email-error" : undefined}
-                                    className="mt-2 w-full rounded-lg border border-white/10 bg-black/30 px-4 py-2.5 text-sm text-white placeholder-white/30 outline-none transition focus:border-blue-400/60"
+                                    className={inputClassName}
                                 />
 
                                 {errors.email && (
-                                    <p id="email-error" className="mt-2 text-xs text-red-300">
+                                    <p id="email-error" className={errorClassName}>
                                         {errors.email}
                                     </p>
                                 )}
@@ -139,7 +146,7 @@ export function ContactForm({data}: ContactFormProps) {
 
                         <div className="grid gap-6 sm:grid-cols-2">
                             <div>
-                                <label htmlFor="projectType" className="text-sm font-medium text-white/80">
+                                <label htmlFor="projectType" className={labelClassName}>
                                     Project type
                                 </label>
 
@@ -149,7 +156,7 @@ export function ContactForm({data}: ContactFormProps) {
                                     defaultValue=""
                                     aria-invalid={Boolean(errors.projectType)}
                                     aria-describedby={errors.projectType ? "project-type-error" : undefined}
-                                    className="mt-2 w-full rounded-lg border border-white/10 bg-black/30 px-4 py-2.5 text-sm text-white outline-none transition focus:border-blue-400/60"
+                                    className={inputClassName}
                                 >
                                     <option value="" disabled>
                                         Select a project type
@@ -163,23 +170,18 @@ export function ContactForm({data}: ContactFormProps) {
                                 </select>
 
                                 {errors.projectType && (
-                                    <p id="project-type-error" className="mt-2 text-xs text-red-300">
+                                    <p id="project-type-error" className={errorClassName}>
                                         {errors.projectType}
                                     </p>
                                 )}
                             </div>
 
                             <div>
-                                <label htmlFor="budgetRange" className="text-sm font-medium text-white/80">
-                                    Budget range <span className="text-white/40">(optional)</span>
+                                <label htmlFor="budgetRange" className={labelClassName}>
+                                    Budget range <span className="text-muted-foreground">(optional)</span>
                                 </label>
 
-                                <select
-                                    id="budgetRange"
-                                    name="budgetRange"
-                                    defaultValue=""
-                                    className="mt-2 w-full rounded-lg border border-white/10 bg-black/30 px-4 py-2.5 text-sm text-white outline-none transition focus:border-blue-400/60"
-                                >
+                                <select id="budgetRange" name="budgetRange" defaultValue="" className={inputClassName}>
                                     <option value="">Select a budget range</option>
 
                                     {data.budgetRangeOptions.map((option) => (
@@ -192,7 +194,7 @@ export function ContactForm({data}: ContactFormProps) {
                         </div>
 
                         <div>
-                            <label htmlFor="message" className="text-sm font-medium text-white/80">
+                            <label htmlFor="message" className={labelClassName}>
                                 Message
                             </label>
 
@@ -203,23 +205,23 @@ export function ContactForm({data}: ContactFormProps) {
                                 placeholder="Tell me about the system you're building..."
                                 aria-invalid={Boolean(errors.message)}
                                 aria-describedby={errors.message ? "message-error" : undefined}
-                                className="mt-2 w-full resize-none rounded-lg border border-white/10 bg-black/30 px-4 py-2.5 text-sm text-white placeholder-white/30 outline-none transition focus:border-blue-400/60"
+                                className={`${inputClassName} resize-none`}
                             />
 
                             {errors.message && (
-                                <p id="message-error" className="mt-2 text-xs text-red-300">
+                                <p id="message-error" className={errorClassName}>
                                     {errors.message}
                                 </p>
                             )}
                         </div>
 
-                        <div className="flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                            <p className="text-xs text-white/40">{data.responseExpectation}</p>
+                        <div className="flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+                            <p className="text-xs text-muted-foreground">{data.responseExpectation}</p>
 
                             <button
                                 type="submit"
                                 disabled={status === "submitting"}
-                                className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-2.5 text-sm font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+                                className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-2.5 text-sm font-medium text-white shadow-sm transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
                             >
                                 {status === "submitting"
                                     ? "Sending..."
@@ -230,18 +232,24 @@ export function ContactForm({data}: ContactFormProps) {
                         </div>
 
                         {status === "submitted" && (
-                            <p className="text-sm text-emerald-300" role="status">
+                            <p
+                                className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-700 dark:text-emerald-300"
+                                role="status"
+                            >
                                 {submitMessage || "Thanks — your message was sent successfully."}
                             </p>
                         )}
 
                         {status === "error" && (
-                            <p className="text-sm text-red-300" role="alert">
+                            <p
+                                className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-700 dark:text-red-300"
+                                role="alert"
+                            >
                                 {submitMessage || "Something went wrong. Please try again."}
                             </p>
                         )}
 
-                        <p className="text-xs text-white/35">{data.frontendOnlyNote}</p>
+                        <p className="text-xs text-muted-foreground">{data.frontendOnlyNote}</p>
                     </form>
                 </ContactMotionWrapper>
             </div>

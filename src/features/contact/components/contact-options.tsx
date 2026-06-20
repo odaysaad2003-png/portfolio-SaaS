@@ -1,19 +1,22 @@
-import type {
-    ContactOption,
-    ContactOptionIcon,
-} from "@/features/contact/types/contact";
-import { ContactMotionWrapper } from "@/features/contact/components/contact-motion-wrapper";
+import type {ContactOption, ContactOptionIcon} from "@/features/contact/types/contact";
+import {ContactMotionWrapper} from "@/features/contact/components/contact-motion-wrapper";
 
 // Inline SVG icons only — this project previously hit export errors with
 // lucide-react brand icons (Github / Linkedin), so brand marks are hand-rolled
 // here instead of imported.
-function OptionIcon({ name }: { name: ContactOptionIcon }) {
+function OptionIcon({name}: {name: ContactOptionIcon}) {
     switch (name) {
         case "email":
             return (
                 <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" aria-hidden="true">
                     <path d="M3 6h18v12H3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-                    <path d="m3 7 9 6 9-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                        d="m3 7 9 6 9-6"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
                 </svg>
             );
         case "github":
@@ -39,15 +42,13 @@ type ContactOptionsProps = {
     options: ContactOption[];
 };
 
-export function ContactOptions({ options }: ContactOptionsProps) {
+export function ContactOptions({options}: ContactOptionsProps) {
     return (
-        <section className="border-b border-white/10 px-6 py-20">
+        <section className="border-b border-border bg-background px-6 py-20 text-foreground">
             <div className="mx-auto max-w-6xl">
                 <ContactMotionWrapper>
-                    <span className="text-xs font-medium uppercase tracking-wide text-blue-300">
-                        Reach Out
-                    </span>
-                    <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
+                    <span className="text-xs font-medium uppercase tracking-wide text-primary">Reach Out</span>
+                    <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
                         Choose how you want to connect.
                     </h2>
                 </ContactMotionWrapper>
@@ -59,18 +60,15 @@ export function ContactOptions({ options }: ContactOptionsProps) {
                                 href={option.href}
                                 target={option.external ? "_blank" : undefined}
                                 rel={option.external ? "noreferrer noopener" : undefined}
-                                className="group flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:border-blue-400/40 hover:bg-white/[0.06]"
+                                className="group flex h-full flex-col gap-4 rounded-2xl border border-border bg-card/75 p-6 text-card-foreground shadow-sm backdrop-blur transition hover:border-primary/40 hover:bg-card"
                             >
-                                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-blue-300 transition group-hover:border-blue-400/40 group-hover:text-blue-200">
+                                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-muted text-primary transition group-hover:border-primary/40">
                                     <OptionIcon name={option.icon} />
                                 </span>
+
                                 <div>
-                                    <p className="text-base font-medium text-white">
-                                        {option.label}
-                                    </p>
-                                    <p className="mt-1 text-sm text-white/55">
-                                        {option.description}
-                                    </p>
+                                    <p className="text-base font-medium text-foreground">{option.label}</p>
+                                    <p className="mt-1 text-sm text-muted-foreground">{option.description}</p>
                                 </div>
                             </a>
                         </ContactMotionWrapper>

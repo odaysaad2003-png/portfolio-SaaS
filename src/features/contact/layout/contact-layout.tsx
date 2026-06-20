@@ -10,7 +10,7 @@ type ContactLayoutProps = {
 
 export function ContactLayout({ data }: ContactLayoutProps) {
     return (
-        <main className="min-h-screen bg-[#05070d] text-white">
+        <main className="min-h-screen bg-background text-foreground">
             <ContactHero data={data.hero} />
             <ContactOptions options={data.options} />
             <ContactFit items={data.fitItems} />
