@@ -1,17 +1,24 @@
-import {projects} from "./project.data";
+import {waitInDevelopment} from "@/lib/dev/wait";
 
+import {projects} from "./project.data";
 
 import {getSmartRelatedProjects} from "@/features/projects/engine/related-projects";
 
-export function getProjects() {
+export async function getProjects() {
+    await waitInDevelopment(600);
+
     return projects;
 }
 
-export function getFeaturedProjects() {
+export async function getFeaturedProjects() {
+    await waitInDevelopment(600);
+
     return projects.filter((project) => project.featured);
 }
 
-export function getProjectBySlug(slug: string) {
+export async function getProjectBySlug(slug: string) {
+    await waitInDevelopment(600);
+
     return projects.find((project) => project.slug === slug);
 }
 
@@ -34,8 +41,6 @@ export function getNextProject(slug: string) {
 
     return projects[nextIndex];
 }
-
-
 
 export function getRelatedProjects(slug: string) {
     return getSmartRelatedProjects(slug);

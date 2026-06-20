@@ -12,11 +12,11 @@ type Props = {
 export default async function ProjectPage({params}: Props) {
     const {slug} = await params;
 
-    const project = getProjectBySlug(slug);
+    const project = await getProjectBySlug(slug);
 
     if (!project) return notFound();
 
-    const caseStudy = mapProjectToCaseStudy(project);
+    const caseStudy =  mapProjectToCaseStudy(project);
 
     return <CaseStudyLayout data={caseStudy} slug={slug} />;
 }

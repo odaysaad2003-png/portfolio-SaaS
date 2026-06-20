@@ -9,6 +9,7 @@ export default function Loading() {
                     title="Loading about page"
                     description="Preparing profile, skills, timeline, and engineering philosophy."
                 />
+               
             </div>
         </main>
     );
