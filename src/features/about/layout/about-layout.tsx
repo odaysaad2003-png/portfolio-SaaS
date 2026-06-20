@@ -13,7 +13,7 @@ type AboutLayoutProps = {
 
 export function AboutLayout({data}: AboutLayoutProps) {
     return (
-        <main className="min-h-screen bg-[#05070d]">
+        <main className="min-h-screen bg-background text-foreground">
             <AboutHero data={data.hero} />
             <AboutPhilosophy principles={data.principles} />
             <AboutSkillsSystem skillSystems={data.skillSystems} />

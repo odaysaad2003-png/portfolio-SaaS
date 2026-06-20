@@ -7,22 +7,24 @@ type AboutMindsetProps = {
 
 export function AboutMindset({mindset}: AboutMindsetProps) {
     return (
-        <section className="relative px-6 py-24 sm:px-10">
+        <section className="relative bg-background px-6 py-24 text-foreground sm:px-10">
             <div className="mx-auto max-w-5xl">
                 <AboutMotionWrapper>
-                    <p className="text-sm font-semibold uppercase tracking-wider text-amber-400">{mindset.title}</p>
-                    <h2 className="mt-3 max-w-2xl text-3xl font-bold text-white sm:text-4xl">How systems get built</h2>
+                    <p className="text-sm font-semibold uppercase tracking-wider text-amber-500">{mindset.title}</p>
+                    <h2 className="mt-3 max-w-2xl font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                        How systems get built
+                    </h2>
                 </AboutMotionWrapper>
 
                 <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-amber-500/20 bg-amber-500/10 md:grid-cols-3">
                     {mindset.steps.map((step, index) => (
                         <AboutMotionWrapper key={step.id} delay={index * 0.1}>
-                            <div className="h-full bg-[#05070d] p-6">
-                                <span className="font-mono text-sm text-amber-400">{step.step}</span>
+                            <div className="h-full bg-card p-6">
+                                <span className="font-mono text-sm text-amber-500">{step.step}</span>
 
-                                <h3 className="mt-3 text-lg font-semibold text-white">{step.title}</h3>
+                                <h3 className="mt-3 text-lg font-semibold text-foreground">{step.title}</h3>
 
-                                <p className="mt-2 text-sm leading-relaxed text-white/60">{step.description}</p>
+                                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
                             </div>
                         </AboutMotionWrapper>
                     ))}

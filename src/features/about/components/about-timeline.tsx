@@ -1,5 +1,3 @@
-// src/features/about/components/about-timeline.tsx
-
 import {TimelineEntry} from "@/features/about/types/about";
 import {AboutMotionWrapper} from "./about-motion-wrapper";
 
@@ -9,13 +7,11 @@ type AboutTimelineProps = {
 
 export function AboutTimeline({timeline}: AboutTimelineProps) {
     return (
-        <section className="relative px-6 py-24 sm:px-10">
+        <section className="relative bg-background px-6 py-24 text-foreground sm:px-10">
             <div className="mx-auto max-w-3xl">
                 <AboutMotionWrapper>
-                    <p className="text-sm font-semibold uppercase tracking-wider text-emerald-400">
-                        Product Evolution
-                    </p>
-                    <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+                    <p className="text-sm font-semibold uppercase tracking-wider text-emerald-500">Product Evolution</p>
+                    <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                         Versioned, not just dated
                     </h2>
                 </AboutMotionWrapper>
@@ -32,18 +28,16 @@ export function AboutTimeline({timeline}: AboutTimelineProps) {
                                 <div className="relative">
                                     <span
                                         aria-hidden
-                                        className="absolute -left-8 top-1.5 h-3.5 w-3.5 rounded-full border-2 border-emerald-400 bg-[#05070d]"
+                                        className="absolute -left-8 top-1.5 h-3.5 w-3.5 rounded-full border-2 border-emerald-500 bg-background"
                                     />
                                     <div className="flex flex-wrap items-baseline gap-3">
-                                        <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-0.5 font-mono text-xs text-emerald-300">
+                                        <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-0.5 font-mono text-xs text-emerald-600 dark:text-emerald-300">
                                             {entry.version}
                                         </span>
-                                        <h3 className="text-lg font-semibold text-white">
-                                            {entry.title}
-                                        </h3>
-                                        <span className="text-xs text-white/40">{entry.year}</span>
+                                        <h3 className="text-lg font-semibold text-foreground">{entry.title}</h3>
+                                        <span className="text-xs text-muted-foreground">{entry.year}</span>
                                     </div>
-                                    <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/60">
+                                    <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
                                         {entry.description}
                                     </p>
                                 </div>

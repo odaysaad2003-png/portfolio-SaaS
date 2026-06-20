@@ -8,11 +8,11 @@ type AboutHeroProps = {
 
 export function AboutHero({data}: AboutHeroProps) {
     return (
-        <section className="relative overflow-hidden px-6 pb-24 pt-32 sm:px-10">
+        <section className="relative overflow-hidden bg-background px-6 pb-24 pt-32 text-foreground sm:px-10">
             {/* Background glow */}
             <div
                 aria-hidden
-                className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[140px]"
+                className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary/15 blur-[140px]"
             />
 
             <div
@@ -24,37 +24,37 @@ export function AboutHero({data}: AboutHeroProps) {
                 {/* Left content */}
                 <div>
                     <AboutMotionWrapper>
-                        <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium text-blue-300 backdrop-blur">
+                        <span className="inline-flex items-center rounded-full border border-border bg-card/70 px-4 py-1.5 text-sm font-medium text-primary shadow-sm backdrop-blur">
                             {data.badge}
                         </span>
                     </AboutMotionWrapper>
 
                     <AboutMotionWrapper delay={0.1}>
-                        <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+                        <h1 className="mt-6 max-w-4xl font-heading text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl">
                             {data.identityStatement}
                         </h1>
                     </AboutMotionWrapper>
 
                     <AboutMotionWrapper delay={0.2}>
-                        <p className="mt-5 text-lg font-medium text-white/70">{data.role}</p>
+                        <p className="mt-5 text-lg font-medium text-muted-foreground">{data.role}</p>
                     </AboutMotionWrapper>
 
                     <AboutMotionWrapper delay={0.3}>
-                        <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/60">{data.summary}</p>
+                        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">{data.summary}</p>
                     </AboutMotionWrapper>
 
                     <AboutMotionWrapper delay={0.4}>
                         <div className="mt-8 flex flex-wrap gap-3">
                             <Link
                                 href={data.primaryAction.href}
-                                className="rounded-full bg-blue-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-400"
+                                className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90"
                             >
                                 {data.primaryAction.label}
                             </Link>
 
                             <Link
                                 href={data.secondaryAction.href}
-                                className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white/80 transition hover:bg-white/10"
+                                className="rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:bg-muted"
                             >
                                 {data.secondaryAction.label}
                             </Link>
@@ -66,10 +66,12 @@ export function AboutHero({data}: AboutHeroProps) {
                             {data.stats.map((stat) => (
                                 <div
                                     key={stat.label}
-                                    className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 backdrop-blur"
+                                    className="rounded-2xl border border-border bg-card/75 px-4 py-5 shadow-sm backdrop-blur"
                                 >
-                                    <p className="text-2xl font-bold text-white">{stat.value}</p>
-                                    <p className="mt-1 text-xs uppercase tracking-wide text-white/50">{stat.label}</p>
+                                    <p className="font-heading text-2xl font-bold text-foreground">{stat.value}</p>
+                                    <p className="mt-1 text-xs uppercase tracking-wide text-muted-foreground">
+                                        {stat.label}
+                                    </p>
                                 </div>
                             ))}
                         </div>
@@ -79,33 +81,35 @@ export function AboutHero({data}: AboutHeroProps) {
                 {/* Right identity card */}
                 <AboutMotionWrapper delay={0.25}>
                     <div className="relative">
-                        <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-2xl" />
+                        <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-primary/20 to-purple-500/20 blur-2xl" />
 
-                        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 backdrop-blur-xl">
+                        <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card/80 p-6 text-card-foreground shadow-soft backdrop-blur-xl">
                             <div className="flex items-center gap-4">
-                                <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/10">
+                                <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl border border-border bg-muted">
                                     {data.avatarUrl ? (
                                         <img
                                             src={data.avatarUrl}
                                             alt="Oday Zoheer Saad"
                                             className="h-full w-full object-cover"
+                                            
+                                        
                                         />
                                     ) : (
-                                        <span className="text-xl font-bold text-white">{data.initials}</span>
+                                        <span className="text-xl font-bold text-foreground">{data.initials}</span>
                                     )}
                                 </div>
 
                                 <div>
-                                    <p className="text-sm text-white/50">Builder Profile</p>
-                                    <h2 className="mt-1 text-xl font-semibold text-white">Oday Zoheer Saad</h2>
-                                    <p className="mt-1 text-sm text-blue-300">Fullstack Developer</p>
+                                    <p className="text-sm text-muted-foreground">Builder Profile</p>
+                                    <h2 className="mt-1 text-xl font-semibold text-foreground">Oday Zoheer Saad</h2>
+                                    <p className="mt-1 text-sm text-primary">Fullstack Developer</p>
                                 </div>
                             </div>
 
-                            <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
-                                <p className="font-mono text-xs text-white/40">engineering_principle.ts</p>
+                            <div className="mt-8 rounded-2xl border border-border bg-muted/70 p-5">
+                                <p className="font-mono text-xs text-muted-foreground">engineering_principle.ts</p>
 
-                                <pre className="mt-4 overflow-x-auto text-sm leading-relaxed text-white/70">
+                                <pre className="mt-4 overflow-x-auto font-mono text-sm leading-relaxed text-muted-foreground">
                                     {`const principle = {
   focus: "Systems",
   mindset: "Architecture First",
@@ -118,16 +122,18 @@ export function AboutHero({data}: AboutHeroProps) {
                                 {data.focusAreas.map((item) => (
                                     <span
                                         key={item}
-                                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70"
+                                        className="rounded-full border border-border bg-muted px-3 py-1 text-xs text-muted-foreground"
                                     >
                                         {item}
                                     </span>
                                 ))}
                             </div>
 
-                            <div className="mt-8 border-t border-white/10 pt-5">
-                                <p className="text-xs uppercase tracking-wider text-white/40">Current direction</p>
-                                <p className="mt-2 text-sm leading-relaxed text-white/65">
+                            <div className="mt-8 border-t border-border pt-5">
+                                <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                                    Current direction
+                                </p>
+                                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                                     Building developer case studies as real product systems — with architecture, UX, and
                                     measurable engineering decisions.
                                 </p>
