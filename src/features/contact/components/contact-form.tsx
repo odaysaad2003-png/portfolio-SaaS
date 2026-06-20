@@ -6,57 +6,71 @@ import type {ContactFormData} from "@/features/contact/types/contact";
 import {contactFormSchema, type ContactFormValues} from "@/features/contact/lib/schema/contact-form.schema";
 import {ContactMotionWrapper} from "@/features/contact/components/contact-motion-wrapper";
 
+
+import {submitContactMessage} from "@/features/contact/actions/submit-contact-message";
+
 type ContactFormProps = {
     data: ContactFormData;
 };
 
-type SubmitStatus = "idle" | "submitted";
+type SubmitStatus = "idle" | "submitting" | "submitted" | "error";
 
 type FormErrors = Partial<Record<keyof ContactFormValues, string>>;
 
 export function ContactForm({data}: ContactFormProps) {
     const [status, setStatus] = useState<SubmitStatus>("idle");
+    const [submitMessage, setSubmitMessage] = useState("");
     const [errors, setErrors] = useState<FormErrors>({});
 
-    function handleSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault();
+ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+     event.preventDefault();
 
-        const formData = new FormData(event.currentTarget);
+     const form = event.currentTarget;
+     const formData = new FormData(form);
 
-        const values = {
-            name: String(formData.get("name") ?? ""),
-            email: String(formData.get("email") ?? ""),
-            projectType: String(formData.get("projectType") ?? ""),
-            budgetRange: String(formData.get("budgetRange") ?? "") || undefined,
-            message: String(formData.get("message") ?? ""),
-        };
+     const values = {
+         name: String(formData.get("name") ?? ""),
+         email: String(formData.get("email") ?? ""),
+         projectType: String(formData.get("projectType") ?? ""),
+         budgetRange: String(formData.get("budgetRange") ?? "") || undefined,
+         message: String(formData.get("message") ?? ""),
+     };
 
-        const result = contactFormSchema.safeParse(values);
+     const result = contactFormSchema.safeParse(values);
 
-        if (!result.success) {
-            const fieldErrors: FormErrors = {};
+     if (!result.success) {
+         const fieldErrors: FormErrors = {};
 
-            result.error.issues.forEach((issue) => {
-                const fieldName = issue.path[0] as keyof ContactFormValues;
+         result.error.issues.forEach((issue) => {
+             const fieldName = issue.path[0] as keyof ContactFormValues;
 
-                if (!fieldErrors[fieldName]) {
-                    fieldErrors[fieldName] = issue.message;
-                }
-            });
+             if (!fieldErrors[fieldName]) {
+                 fieldErrors[fieldName] = issue.message;
+             }
+         });
 
-            setErrors(fieldErrors);
-            setStatus("idle");
-            return;
-        }
+         setErrors(fieldErrors);
+         setStatus("idle");
+         setSubmitMessage("");
+         return;
+     }
 
-        const validatedValues = result.data;
+     setErrors({});
+     setStatus("submitting");
+     setSubmitMessage("");
 
-        console.log("Validated contact form values:", validatedValues);
+     const submitResult = await submitContactMessage(result.data);
 
-        setErrors({});
-        setStatus("submitted");
-        event.currentTarget.reset();
-    }
+     if (!submitResult.success) {
+         setStatus("error");
+         setSubmitMessage(submitResult.message);
+         return;
+     }
+
+     setStatus("submitted");
+     setSubmitMessage(submitResult.message);
+     form.reset();
+ }
 
     return (
         <section className="px-6 py-20">
@@ -204,15 +218,26 @@ export function ContactForm({data}: ContactFormProps) {
 
                             <button
                                 type="submit"
-                                className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-2.5 text-sm font-medium text-white transition hover:opacity-90"
+                                disabled={status === "submitting"}
+                                className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-2.5 text-sm font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
                             >
-                                {status === "submitted" ? "Message received" : "Send message"}
+                                {status === "submitting"
+                                    ? "Sending..."
+                                    : status === "submitted"
+                                    ? "Message sent"
+                                    : "Send message"}
                             </button>
                         </div>
 
                         {status === "submitted" && (
                             <p className="text-sm text-emerald-300" role="status">
-                                Thanks — this is a frontend-only preview, so no message was actually sent yet.
+                                {submitMessage || "Thanks — your message was sent successfully."}
+                            </p>
+                        )}
+
+                        {status === "error" && (
+                            <p className="text-sm text-red-300" role="alert">
+                                {submitMessage || "Something went wrong. Please try again."}
                             </p>
                         )}
 
