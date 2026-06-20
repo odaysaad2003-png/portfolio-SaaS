@@ -25,7 +25,7 @@ export function mapContactData(data: ContactData): ContactViewModel {
             title: data.formTitle,
             description: data.formDescription,
             projectTypeOptions: data.projectTypes.map(toSelectOption),
-            budgetRangeOptions: data.budgetRanges.map(toSelectOption),
+            budgetRangeOptions: data.budgetRanges,
             responseExpectation: data.responseExpectation,
             frontendOnlyNote: data.frontendOnlyNote,
         },

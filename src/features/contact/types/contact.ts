@@ -47,8 +47,19 @@ export type ContactData = {
     hero: ContactHeroRaw;
     options: ContactOption[];
     fitItems: ProjectFitItem[];
+
+    /**
+     * Project types are simple labels because their form values can be safely
+     * generated from the label.
+     */
     projectTypes: string[];
-    budgetRanges: string[];
+
+    /**
+     * Budget ranges are explicit options because their values should stay
+     * stable and semantic instead of being generated from currency text.
+     */
+    budgetRanges: SelectOption[];
+
     responseExpectation: string;
     frontendOnlyNote: string;
     formTitle: string;

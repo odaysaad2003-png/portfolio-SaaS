@@ -91,7 +91,33 @@ export function getContactData(): ContactData {
             "Other",
         ],
 
-        budgetRanges: ["Under $1,000", "$1,000 - $3,000", "$3,000 - $7,000", "$7,000+", "Not sure yet"],
+        budgetRanges: [
+            {
+                id: "under-1000",
+                label: "Under $1,000",
+                value: "under-1000",
+            },
+            {
+                id: "1000-3000",
+                label: "$1,000 - $3,000",
+                value: "1000-3000",
+            },
+            {
+                id: "3000-7000",
+                label: "$3,000 - $7,000",
+                value: "3000-7000",
+            },
+            {
+                id: "7000-plus",
+                label: "$7,000+",
+                value: "7000-plus",
+            },
+            {
+                id: "not-sure",
+                label: "Not sure yet",
+                value: "not-sure",
+            },
+        ],
 
         responseExpectation: "Expect a reply within 1-2 business days.",
         frontendOnlyNote: "This form is frontend-only for now. Email integration can be added later.",
