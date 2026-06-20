@@ -14,7 +14,7 @@ export const projects: Project[] = [
 
         solution: "Built a scalable SaaS dashboard with real-time insights and optimized UX.",
 
-        technologies: ["React", "JavaScript", "CSS"],
+        technologies: ["React", "JSx", "Tailwind CSS"],
 
         metrics: [
             {label: "Performance Boost", value: "+40%"},
@@ -96,7 +96,7 @@ export const projects: Project[] = [
 
         solution: "Delivered a high-performance shopping platform.",
 
-        technologies: ["html", "javascript", " CSS"],
+        technologies: ["html", "JavaScript", " CSS"],
 
         metrics: [
             {label: "Conversion Rate", value: "+55%"},
@@ -115,6 +115,83 @@ export const projects: Project[] = [
             {
                 url: "/markit-gaza/product-dark.png",
                 alt: "Mobile responsive view",
+            },
+        ],
+
+        featured: true,
+
+        createdAt: "2026-01-10",
+        category: "frontend",
+    },
+
+    {
+        id: "4",
+        slug: "cruds",
+
+        title: "product maneger",
+        description: "Full-featured sell system with advanced show.",
+
+        problem: "Existing cruds opration delet add aupdate",
+
+        approach: "Implemented a fast filtering system with optimized queries.",
+
+        solution: "Delivered a high-performance shopping platform.",
+
+        technologies: ["html", "JavaScript", "CSS"],
+
+        metrics: [
+            {label: "Conversion Rate", value: "+35%"},
+            {label: "Load Speed", value: "+40%"},
+        ],
+
+        images: [
+            {
+                url: "/cruds/لقطة شاشة 2026-06-20 150543.png",
+                alt: "crud-photo-project",
+            },
+        ],
+
+        featured: true,
+
+        createdAt: "2026-01-10",
+        category: "frontend",
+    },
+    {
+        id: "5",
+        slug: "bulding-progict",
+
+        title: "Puilding",
+        description: "Full-featured sell system with advanced show.",
+
+        problem: "Existing e-commerce solutions were slow and not scalable.",
+
+        approach: "Implemented a fast filtering system with optimized queries.",
+
+        solution: "Delivered a high-performance shopping platform.",
+
+        technologies: ["html", "JavaScript", "CSS" , "AOS"],
+
+        metrics: [
+            {label: "Conversion Rate", value: "+35%"},
+            {label: "Load Speed", value: "+40%"},
+        ],
+
+        images: [
+            {
+                url: "/building-project/about-section.png",
+                alt: "about-photo",
+            },
+            {
+                url: "/building-project/contact-page.png",
+                alt: "contact-page-photo",
+            },
+            {
+                url: "/building-project/footer.png",
+                alt: "footer-photo",
+            },
+            {
+                url: "/building-project/services-page.png",
+                alt: "services-page-photo",
             },
         ],
 
