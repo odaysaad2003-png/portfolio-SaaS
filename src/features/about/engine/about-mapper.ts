@@ -1,15 +1,13 @@
-// engine/about-mapper.ts
-
-import type {
-    AboutViewModel,
-    SkillSystem,
-    TimelineEntry,
-    MindsetStep,
-    FeaturedProjectLink,
-} from "@/features/about/types/about";
+import type {AboutViewModel} from "@/features/about/types/about";
 import {getAboutData} from "../lib/data/about.data";
 
 type AboutRawData = ReturnType<typeof getAboutData>;
+
+const skillLabels: Record<string, string> = {
+    frontend: "Frontend Systems",
+    backend: "Backend Architecture",
+    tools: "Engineering Tools",
+};
 
 export function mapAboutData(data: AboutRawData): AboutViewModel {
     return {
@@ -27,9 +25,9 @@ export function mapAboutData(data: AboutRawData): AboutViewModel {
 
         principles: data.principles,
 
-        skillSystems: Object.entries(data.skills).map(([key, value], index) => ({
-            id: key, // ✅ مهم جدًا
-            category: key,
+        skillSystems: Object.entries(data.skills).map(([key, value]) => ({
+            id: key,
+            category: skillLabels[key] ?? key,
             description: value.description,
             items: value.items,
         })),

@@ -1,5 +1,3 @@
-// src/features/about/layout/about-layout.tsx
-
 import {AboutViewModel} from "../types/about";
 import {AboutHero} from "../components/about-hero";
 import {AboutPhilosophy} from "../components/about-philosophy";
@@ -13,11 +11,6 @@ type AboutLayoutProps = {
     data: AboutViewModel;
 };
 
-/**
- * Composition layer only — no business logic, no data fetching.
- * Section order encodes the narrative flow:
- * Hero -> Philosophy -> Skills -> Timeline -> Mindset -> Vision -> CTA
- */
 export function AboutLayout({data}: AboutLayoutProps) {
     return (
         <main className="min-h-screen bg-[#05070d]">

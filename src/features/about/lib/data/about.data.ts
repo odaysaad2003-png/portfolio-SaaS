@@ -1,5 +1,3 @@
-// lib/data/about.data.ts
-
 export function getAboutData() {
     return {
         identity: {
