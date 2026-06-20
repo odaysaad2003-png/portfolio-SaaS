@@ -20,7 +20,7 @@ export function getContactData(): ContactData {
                 id: "email",
                 label: "Email",
                 description: "Best for detailed project briefs and proposals.",
-                href: "mailto:hello@odayzoheer.dev",
+                href: "mailto:odaysaad@gmail.com",
                 external: false,
                 icon: "email",
             },
