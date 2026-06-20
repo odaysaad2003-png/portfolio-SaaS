@@ -54,7 +54,10 @@ export function ProjectsGrid({projects}: Props) {
                         imageUrl={project.images?.[0]?.url}
                         imageAlt={project.images?.[0]?.alt}
                         search={project.title}
-                         type={""}                                             />
+                        type={project.category}
+                        liveDemoUrl={project.liveDemoUrl}
+                        githubUrl={project.githubUrl}
+                    />
                 </motion.div>
             ))}
         </motion.div>

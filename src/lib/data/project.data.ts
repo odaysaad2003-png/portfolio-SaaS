@@ -211,10 +211,10 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/odaysaad2003-png/Bulding-Project",
     },
     {
-        id: "5",
-        slug: "bulding-progict",
+        id: "6",
+        slug: "old-portfolio",
 
-        title: "Puilding",
+        title: "Portfolio",
         description: "Full-featured sell system with advanced show.",
 
         problem: "Existing portfolio solutions were slow and not scalable.",

@@ -21,6 +21,8 @@ export type CaseStudy = {
 
     context?: string;
     architecture?: string[];
+    liveDemoUrl?: string;
+    githubUrl?: string;
 };
 
 export function mapProjectToCaseStudy(project: Project): CaseStudy {
@@ -42,5 +44,7 @@ export function mapProjectToCaseStudy(project: Project): CaseStudy {
 
         context: project.context,
         architecture: project.architecture,
+        liveDemoUrl: project.liveDemoUrl,
+        githubUrl: project.githubUrl,
     };
 }
