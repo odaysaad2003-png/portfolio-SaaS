@@ -29,7 +29,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             suppressHydrationWarning
             className={cn("h-full", "antialiased", inter.variable, geistMono.variable)}
         >
-            <body className="min-h-full flex flex-col font-sans">
+            <body className="theme-aware min-h-full flex flex-col font-sans">
                 <ThemeProvider>
                     <AppShell>{children}</AppShell>
                 </ThemeProvider>

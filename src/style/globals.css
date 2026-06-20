@@ -293,3 +293,63 @@ html.dark {
   transform: translateY(-4px);
   box-shadow: var(--shadow-glow);
 }
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/* Light Mode Compatibility Patch                                              */
+/* Temporary bridge for components that were originally designed dark-only.     */
+/* -------------------------------------------------------------------------- */
+
+html:not(.dark) .theme-aware .text-white {
+  color: var(--foreground) !important;
+}
+
+html:not(.dark) .theme-aware .text-white\/90 {
+  color: color-mix(in srgb, var(--foreground) 90%, transparent) !important;
+}
+
+html:not(.dark) .theme-aware .text-white\/80 {
+  color: color-mix(in srgb, var(--foreground) 80%, transparent) !important;
+}
+
+html:not(.dark) .theme-aware .text-white\/70,
+html:not(.dark) .theme-aware .text-white\/60,
+html:not(.dark) .theme-aware .text-white\/55,
+html:not(.dark) .theme-aware .text-white\/50,
+html:not(.dark) .theme-aware .text-white\/40 {
+  color: var(--muted-foreground) !important;
+}
+
+html:not(.dark) .theme-aware .text-blue-300,
+html:not(.dark) .theme-aware .text-blue-400 {
+  color: var(--primary) !important;
+}
+
+html:not(.dark) .theme-aware .border-white\/10,
+html:not(.dark) .theme-aware .border-white\/15,
+html:not(.dark) .theme-aware .border-white\/20 {
+  border-color: var(--border) !important;
+}
+
+html:not(.dark) .theme-aware .bg-white\/5,
+html:not(.dark) .theme-aware .bg-white\/10,
+html:not(.dark) .theme-aware .bg-white\/\[0\.03\] {
+  background-color: color-mix(in srgb, var(--card) 76%, transparent) !important;
+}
+
+html:not(.dark) .theme-aware .bg-black\/20,
+html:not(.dark) .theme-aware .bg-black\/30,
+html:not(.dark) .theme-aware .bg-black\/40 {
+  background-color: color-mix(in srgb, var(--muted) 70%, transparent) !important;
+}
+
+/* Keep real CTA/button text white in light mode */
+html:not(.dark) .theme-aware .preserve-white,
+html:not(.dark) .theme-aware .preserve-white *,
+html:not(.dark) .theme-aware .bg-primary.text-white,
+html:not(.dark) .theme-aware [class*="from-blue"].text-white,
+html:not(.dark) .theme-aware [class*="from-primary"].text-white {
+  color: #ffffff !important;
+}

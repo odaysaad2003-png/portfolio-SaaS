@@ -53,7 +53,7 @@ export function SystemCard({
                             className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                     ) : (
-                        <div className="flex h-full items-center justify-center text-sm text-white/40">
+                        <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
                             Project Preview
                         </div>
                     )}
@@ -79,23 +79,21 @@ export function SystemCard({
                     </div>
 
                     <div className="space-y-2">
-                        <h3 className="text-lg font-semibold tracking-tight text-white">{title}</h3>
+                        <h3 className="text-lg font-semibold tracking-tight text-foreground">{title}</h3>
 
-                        <p className="line-clamp-2 text-sm leading-relaxed text-white/60">{description}</p>
+                        <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
                     </div>
 
                     <div className="flex flex-wrap gap-2">
                         {technologies.slice(0, 4).map((technology) => (
                             <span
                                 key={technology}
-                                className="rounded-md border border-white/10 bg-white/10 px-2 py-1 text-xs text-white/70"
+                                className="rounded-md border border-white/10 bg-white/10 px-2 py-1 text-xs text-muted-foreground"
                             >
                                 {technology}
                             </span>
                         ))}
                     </div>
-
-                   
                 </div>
             </article>
         </Link>
