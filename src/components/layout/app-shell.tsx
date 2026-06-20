@@ -1,3 +1,4 @@
+import { Footer } from "./footer";
 import {Navbar} from "./navbar";
 
 export function AppShell({children}: {children: React.ReactNode}) {
@@ -13,11 +14,7 @@ export function AppShell({children}: {children: React.ReactNode}) {
 
             {/* FOOTER */}
             <footer className="border-t border-border mt-20">
-                <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-                    <p>© {new Date().getFullYear()} Oday Saad</p>
-
-                    <p>Built with Next.js • TypeScript • SaaS Architecture</p>
-                </div>
+               <Footer/>
             </footer>
         </div>
     );
