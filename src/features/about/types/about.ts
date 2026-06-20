@@ -43,6 +43,22 @@ export type AboutHeroData = {
     identityStatement: string;
     role: string;
     summary: string;
+
+    avatarUrl?: string;
+    initials: string;
+
+    primaryAction: {
+        label: string;
+        href: string;
+    };
+
+    secondaryAction: {
+        label: string;
+        href: string;
+    };
+
+    focusAreas: string[];
+
     stats: {
         label: string;
         value: string;

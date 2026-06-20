@@ -2,8 +2,12 @@ export function getAboutData() {
     return {
         identity: {
             name: "Oday Zoheer Saad",
-            role: "System Architect & SaaS Builder",
+            role: "Fullstack Developer / System Architect & SaaS Builder",
             tagline: "I build systems, not pages.",
+            summary:
+                "I’m Oday Zoheer Saad, a fullstack developer focused on turning product ideas into scalable SaaS-style systems, architecture-driven interfaces, and real engineering case studies.",
+            initials: "OZS",
+            avatarUrl: "/about-me-photo.png",
         },
 
         principles: [
@@ -27,15 +31,15 @@ export function getAboutData() {
         skills: {
             frontend: {
                 description: "UI development systems",
-                items: ["Next.js", "React", "TypeScript", "Tailwind"],
+                items: ["Next.js", "React", "TypeScript", "Tailwind", "javascript", "html", "css"],
             },
             backend: {
                 description: "Server-side architecture",
-                items: ["Node.js", "APIs", "System Design"],
+                items: ["Node.js", "APIs", "System Design", "https", " Design btern"],
             },
             tools: {
                 description: "Development ecosystem",
-                items: ["Git", "Framer Motion", "Vercel"],
+                items: ["Git", "Framer Motion", "Vercel", "github", "Netlify"],
             },
         },
 

@@ -12,10 +12,21 @@ const skillLabels: Record<string, string> = {
 export function mapAboutData(data: AboutRawData): AboutViewModel {
     return {
         hero: {
-            badge: "About Me",
+            badge: "About the Builder",
             identityStatement: data.identity.tagline,
             role: data.identity.role,
-            summary: `${data.identity.name} — System Architect & SaaS Builder`,
+            summary: data.identity.summary,
+            avatarUrl: data.identity.avatarUrl,
+            initials: data.identity.initials,
+            primaryAction: {
+                label: "View Case Studies",
+                href: "/projects",
+            },
+            secondaryAction: {
+                label: "Contact Me",
+                href: "/contact",
+            },
+            focusAreas: ["SaaS Systems", "Architecture", "Fullstack Engineering"],
             stats: [
                 {label: "Focus", value: "Systems"},
                 {label: "Stack", value: "Fullstack"},
