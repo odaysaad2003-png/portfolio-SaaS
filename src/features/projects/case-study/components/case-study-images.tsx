@@ -2,7 +2,7 @@
 
 import {useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
-
+import Image from "next/image";
 import {CaseStudy} from "../../engine/project-mapper";
 
 type Props = {
@@ -62,7 +62,7 @@ export function CaseStudyImages({data}: Props) {
                         transition={{duration: 0.7, ease: "easeOut"}}
                         className="group relative w-full overflow-hidden rounded-2xl border border-white/10 text-left"
                     >
-                        <img
+                        <Image
                             src={featured.url}
                             alt={featured.alt || "Featured project screenshot"}
                             className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -93,7 +93,7 @@ export function CaseStudyImages({data}: Props) {
                                     }}
                                     className="group relative overflow-hidden rounded-xl border border-white/10 text-left"
                                 >
-                                    <img
+                                    <Image
                                         src={image.url}
                                         alt={image.alt || "Project screenshot"}
                                         className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -139,7 +139,7 @@ export function CaseStudyImages({data}: Props) {
                                 Close
                             </button>
 
-                            <img
+                            <Image
                                 src={selectedImage.url}
                                 alt={selectedImage.alt || "Selected project screenshot"}
                                 className="max-h-[90vh] w-full object-contain"

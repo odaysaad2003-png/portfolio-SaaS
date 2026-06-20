@@ -1,5 +1,7 @@
 import { label } from "framer-motion/client";
 import Link from "next/link";
+import Image from "next/image";
+
 
 const footerLinks = [
     {
@@ -58,7 +60,7 @@ export function Footer() {
                     <div>
                         <Link href="/" className="inline-flex items-center gap-3">
                             <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-blue-500/30 bg-blue-500/10 text-sm font-bold text-blue-300">
-                                <img src={"/MyLogo.png"} alt={"my-logo-imeg"} />
+                                <Image src={"/MyLogo.png"} alt={"my-logo-imeg"} />
                             </span>
 
                             <div>
