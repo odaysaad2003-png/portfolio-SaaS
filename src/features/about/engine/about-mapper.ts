@@ -7,7 +7,7 @@ import type {
     MindsetStep,
     FeaturedProjectLink,
 } from "@/features/about/types/about";
-import { getAboutData } from "../lib/data/about.data";
+import {getAboutData} from "../lib/data/about.data";
 
 type AboutRawData = ReturnType<typeof getAboutData>;
 
@@ -27,38 +27,22 @@ export function mapAboutData(data: AboutRawData): AboutViewModel {
 
         principles: data.principles,
 
-        skillSystems: [
-            {
-                category: "Frontend",
-                description: data.skills.frontend.description,
-                items: data.skills.frontend.items,
-            },
-            {
-                category: "Backend",
-                description: data.skills.backend.description,
-                items: data.skills.backend.items,
-            },
-            {
-                category: "Tools",
-                description: data.skills.tools.description,
-                items: data.skills.tools.items,
-            },
-        ],
-
-        timeline: data.timeline.map((t: TimelineEntry) => ({
-            version: t.version,
-            year: t.year,
-            title: t.title,
-            description: t.description,
+        skillSystems: Object.entries(data.skills).map(([key, value], index) => ({
+            id: key, // ✅ مهم جدًا
+            category: key,
+            description: value.description,
+            items: value.items,
         })),
+
+        timeline: data.timeline,
 
         mindset: {
             title: "Engineering Mindset",
-            steps: data.mindsetSteps as MindsetStep[],
+            steps: data.mindsetSteps,
         },
 
         vision: data.vision,
 
-        featuredProjects: data.featuredProjects as FeaturedProjectLink[],
+        featuredProjects: data.featuredProjects,
     };
 }

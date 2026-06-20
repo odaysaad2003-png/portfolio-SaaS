@@ -26,16 +26,16 @@ export function AboutSkillsSystem({skillSystems}: AboutSkillsSystemProps) {
                 </AboutMotionWrapper>
 
                 <div className="mt-12 grid gap-6 md:grid-cols-3">
-                    {skillSystems.map((system, index) => (
+                    {skillSystems?.map((system, index) => (
                         <AboutMotionWrapper key={system.id} delay={index * 0.1}>
                             <div className="flex h-full flex-col rounded-2xl border border-purple-500/20 bg-purple-500/[0.04] p-6 backdrop-blur">
                                 <h3 className="text-base font-semibold text-purple-200">
-                                    {system.label}
+                                    {system.category}
                                 </h3>
                                 <p className="mt-2 text-sm text-white/50">{system.description}</p>
 
                                 <ul className="mt-5 flex flex-wrap gap-2">
-                                    {system.technologies.map((tech) => (
+                                    {system.items.map((tech) => (
                                         <li
                                             key={tech}
                                             className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70"

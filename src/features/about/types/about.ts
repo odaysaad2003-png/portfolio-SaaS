@@ -6,12 +6,8 @@ export type Principle = {
     description: string;
 };
 
-export type SkillBlock = {
-    description: string;
-    items: string[];
-};
-
 export type SkillSystem = {
+    id: string;
     category: string;
     description: string;
     items: string[];
