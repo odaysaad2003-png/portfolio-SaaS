@@ -7,6 +7,11 @@ import {cn} from "@/lib/utils";
 import {ThemeProvider} from "@/components/theme/theme-provider";
 import {AppShell} from "@/components/layout/app-shell";
 
+
+import {FloatingActions} from "@/features/floating-actions/components/floating-actions";
+import {FloatingActionsProvider} from "@/features/floating-actions/context/floating-actions-provider";
+
+
 const inter = Inter({
     subsets: ["latin"],
     variable: "--font-sans",
@@ -31,7 +36,13 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         >
             <body className="theme-aware min-h-full flex flex-col font-sans">
                 <ThemeProvider>
-                    <AppShell>{children}</AppShell>
+                    <AppShell>
+                        {" "}
+                        <FloatingActionsProvider>
+                            {children}
+                            <FloatingActions />
+                        </FloatingActionsProvider>
+                    </AppShell>
                 </ThemeProvider>
             </body>
         </html>
