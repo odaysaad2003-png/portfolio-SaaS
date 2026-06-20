@@ -39,5 +39,3 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 
-
-tep 1 — تحسين  للميزانية Step 2 — إضافة Zod Schema للفورم Step 3 — إنشاء Submit Action مستقلة Step 4 — تحسين ContactForm وربطه بالـ schema/action Step 5 — تجهيز الصفحة للترجمة والتوسع لاحقًا
