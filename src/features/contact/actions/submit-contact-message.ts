@@ -24,6 +24,15 @@ export async function submitContactMessage(values: ContactFormValues): Promise<S
             body: JSON.stringify(result.data),
         });
 
+        const contentType = response.headers.get("content-type");
+
+        if (!contentType?.includes("application/json")) {
+            return {
+                success: false,
+                message: "Server returned an invalid response.",
+            };
+        }
+
         const responseData = (await response.json()) as SubmitContactMessageResult;
 
         if (!response.ok) {
