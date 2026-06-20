@@ -1,4 +1,8 @@
-export function getAboutData() {
+import {waitInDevelopment} from "@/lib/dev/wait";
+
+export async function getAboutData() {
+    await waitInDevelopment(600);
+
     return {
         identity: {
             name: "Oday Zoheer Saad",
@@ -31,15 +35,15 @@ export function getAboutData() {
         skills: {
             frontend: {
                 description: "UI development systems",
-                items: ["Next.js", "React", "TypeScript", "Tailwind", "javascript", "html", "css"],
+                items: ["Next.js", "React", "TypeScript", "Tailwind", "JavaScript", "HTML", "CSS"],
             },
             backend: {
                 description: "Server-side architecture",
-                items: ["Node.js", "APIs", "System Design", "https", " Design btern"],
+                items: ["Node.js", "APIs", "System Design", "HTTP", "Design Patterns"],
             },
             tools: {
                 description: "Development ecosystem",
-                items: ["Git", "Framer Motion", "Vercel", "github", "Netlify"],
+                items: ["Git", "Framer Motion", "Vercel", "GitHub", "Netlify"],
             },
         },
 
@@ -98,7 +102,7 @@ export function getAboutData() {
             },
             {
                 title: "Marketplace System",
-                slug: "markit-plase",
+                slug: "marketplace",
                 description: "Full-stack architecture",
             },
         ],

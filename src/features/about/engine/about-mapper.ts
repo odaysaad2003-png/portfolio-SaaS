@@ -1,7 +1,7 @@
 import type {AboutViewModel} from "@/features/about/types/about";
 import {getAboutData} from "../lib/data/about.data";
 
-type AboutRawData = ReturnType<typeof getAboutData>;
+type AboutRawData = Awaited<ReturnType<typeof getAboutData>>;
 
 const skillLabels: Record<string, string> = {
     frontend: "Frontend Systems",
