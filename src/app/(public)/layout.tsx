@@ -25,6 +25,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
     title: "Oday Saad — Fullstack Developer",
     description: "SaaS-style Developer Portfolio showcasing systems, architecture, and case studies",
+    icons: {
+        icon: "/favicon.ico",
+    },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
