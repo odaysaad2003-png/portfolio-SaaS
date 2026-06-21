@@ -47,7 +47,7 @@ export function CvDownloadActions() {
                         key={cv.href}
                         type="button"
                         onClick={() => setSelectedCv(cv)}
-                        className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white/80 transition hover:border-blue-500/40 hover:bg-blue-500/10 hover:text-white"
+                        className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white/80 transition hover:border-blue-500/40 hover:bg-blue-500/10 hover:text-white"
                     >
                         <FileDown className="h-4 w-4 text-blue-300" />
                         {cv.label}
@@ -61,7 +61,7 @@ export function CvDownloadActions() {
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
                         exit={{opacity: 0}}
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 backdrop-blur-md"
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 backdrop-blur-md pointer"
                         onClick={() => setSelectedCv(null)}
                     >
                         <motion.div
