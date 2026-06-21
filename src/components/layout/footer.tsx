@@ -1,7 +1,5 @@
-import { label } from "framer-motion/client";
-import Link from "next/link";
 import Image from "next/image";
-
+import Link from "next/link";
 
 const footerLinks = [
     {
@@ -20,10 +18,7 @@ const footerLinks = [
         label: "Contact",
         href: "/contact",
     },
-    
 ];
-
-
 
 const socialLinks = [
     {
@@ -47,24 +42,38 @@ export function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="relative mt-24 border-t border-white/10 bg-[#05070d]">
-            {/* Top glow line */}
+        <footer className="relative mt-24 overflow-hidden border-t border-white/10 bg-[#05070d]">
+            {/* Background Glow */}
             <div
-                aria-hidden
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl"
+            />
+
+            {/* Top Glow Line */}
+            <div
+                aria-hidden="true"
                 className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-blue-500/60 to-transparent"
             />
 
-            <div className="mx-auto max-w-6xl px-6 py-12">
+            <div className="relative mx-auto max-w-6xl px-6 py-12">
                 <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
                     {/* Brand */}
                     <div>
-                        <Link href="/" className="inline-flex items-center gap-3">
-                            <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-blue-500/30 bg-blue-500/10 text-sm font-bold text-blue-300">
-                                <Image src={"/MyLogo.png"} alt={"my-logo-imeg"} width={50} height={50} />
+                        <Link href="/" className="group inline-flex items-center gap-3">
+                            <span className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl border border-blue-500/30 bg-blue-500/10 shadow-[0_0_30px_-12px_rgba(59,130,246,0.9)] transition group-hover:border-blue-400/50 group-hover:bg-blue-500/15">
+                                <Image
+                                    src="/MyLogo.png"
+                                    alt="Oday Zoheer Saad logo"
+                                    width={34}
+                                    height={34}
+                                    className="object-contain"
+                                />
                             </span>
 
                             <div>
-                                <p className="text-sm font-semibold text-white">Oday Zoheer Saad</p>
+                                <p className="text-sm font-semibold text-white transition group-hover:text-blue-100">
+                                    Oday Zoheer Saad
+                                </p>
                                 <p className="text-xs text-white/45">Fullstack Developer</p>
                             </div>
                         </Link>
@@ -73,6 +82,10 @@ export function Footer() {
                             I build systems, not pages — scalable SaaS-style products, architecture-driven interfaces,
                             and engineering case studies.
                         </p>
+
+                        <div className="mt-5 inline-flex rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-300">
+                            SaaS Developer Identity Platform
+                        </div>
                     </div>
 
                     {/* Navigation */}
@@ -84,7 +97,7 @@ export function Footer() {
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="text-sm text-white/60 transition hover:text-white"
+                                        className="inline-flex text-sm text-white/60 transition hover:translate-x-1 hover:text-white"
                                     >
                                         {link.label}
                                     </Link>
@@ -107,14 +120,17 @@ export function Footer() {
                                         <a
                                             href={link.href}
                                             target={isExternal ? "_blank" : undefined}
-                                            rel={isExternal ? "noreferrer" : undefined}
-                                            className="group inline-flex items-center gap-2 text-sm text-white/60 transition hover:text-white"
+                                            rel={isExternal ? "noopener noreferrer" : undefined}
+                                            className="group inline-flex items-center gap-3 text-sm text-white/60 transition hover:text-white"
                                         >
-                                            <Icon className="h-4 w-4" />
+                                            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/60 transition group-hover:border-blue-500/40 group-hover:bg-blue-500/10 group-hover:text-blue-300 group-hover:shadow-[0_0_25px_-10px_rgba(59,130,246,0.8)]">
+                                                <Icon className="h-4 w-4" />
+                                            </span>
+
                                             <span>{link.label}</span>
 
                                             {isExternal && (
-                                                <ArrowUpRightIcon className="h-3.5 w-3.5 opacity-0 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100" />
+                                                <ArrowUpRightIcon className="h-3.5 w-3.5 opacity-0 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" />
                                             )}
                                         </a>
                                     </li>
@@ -124,7 +140,7 @@ export function Footer() {
                     </div>
                 </div>
 
-                {/* Bottom bar */}
+                {/* Bottom Bar */}
                 <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/40 md:flex-row md:items-center md:justify-between">
                     <p>© {currentYear} Oday Zoheer Saad. All rights reserved.</p>
 
