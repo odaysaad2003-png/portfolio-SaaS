@@ -28,17 +28,17 @@ const footerLinks = [
 const socialLinks = [
     {
         label: "GitHub",
-        href: "https://github.com/YOUR_GITHUB_USERNAME",
+        href: "https://github.com/odaysaad2003-png",
         icon: GitHubIcon,
     },
     {
         label: "LinkedIn",
-        href: "https://linkedin.com/in/YOUR_LINKEDIN_USERNAME",
+        href: "https://www.linkedin.com/in/oday-saad-ab96743a5/",
         icon: LinkedInIcon,
     },
     {
         label: "Email",
-        href: "mailto:your-email@example.com",
+        href: "mailto:odaysaad2003@gmail.com",
         icon: MailIcon,
     },
 ];

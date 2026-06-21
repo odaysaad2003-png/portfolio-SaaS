@@ -99,7 +99,7 @@ export function CvDownloadActions() {
                                     <button
                                         type="button"
                                         onClick={handleDownload}
-                                        className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-blue-500 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-600"
+                                        className="inline-flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl bg-blue-500 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-600"
                                     >
                                         <Download className="h-4 w-4" />
                                         Download
@@ -108,7 +108,7 @@ export function CvDownloadActions() {
                                     <button
                                         type="button"
                                         onClick={() => setSelectedCv(null)}
-                                        className="inline-flex flex-1 items-center justify-center rounded-xl border border-white/10 px-5 py-3 text-sm text-white/70 transition hover:bg-white/5 hover:text-white"
+                                        className="inline-flex flex-1 cursor-pointer items-center justify-center rounded-xl border border-white/10 px-5 py-3 text-sm text-white/70 transition hover:bg-white/5 hover:text-white"
                                     >
                                         Cancel
                                     </button>

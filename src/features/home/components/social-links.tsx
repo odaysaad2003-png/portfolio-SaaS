@@ -3,17 +3,17 @@ import {FaFacebookF, FaGithub, FaLinkedinIn} from "react-icons/fa";
 const socialLinks = [
     {
         label: "Facebook",
-        href: "https://facebook.com/your-profile",
+        href: "https://www.facebook.com/oday.saad.31?locale=ar_AR",
         icon: FaFacebookF,
     },
     {
         label: "GitHub",
-        href: "https://github.com/odaysaad-png",
+        href: "https://github.com/odaysaad2003-png",
         icon: FaGithub,
     },
     {
         label: "LinkedIn",
-        href: "https://linkedin.com/in/your-profile",
+        href: "https://www.linkedin.com/in/oday-saad-ab96743a5/",
         icon: FaLinkedinIn,
     },
 ];

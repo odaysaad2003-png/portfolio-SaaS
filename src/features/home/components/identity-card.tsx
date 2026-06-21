@@ -24,7 +24,7 @@ export function IdentityCard() {
                         <div className="absolute inset-0 rounded-full bg-blue-500/20 blur-xl" />
 
                         <div className="relative h-full w-full overflow-hidden rounded-full border border-blue-500/30 shadow-lg">
-                            <Image src="/profile.jpeg" alt="Oday Saad" fill priority className="object-cover" />
+                            <Image src="/public/profile.jpeg" alt="Oday Saad" fill priority className="object-cover" />
                         </div>
                     </div>
                 </div>
