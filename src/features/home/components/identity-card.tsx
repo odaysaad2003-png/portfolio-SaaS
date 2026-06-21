@@ -4,6 +4,10 @@ import Image from "next/image";
 import {BadgeCheck} from "lucide-react";
 import {motion} from "framer-motion";
 
+import {SocialLinks} from "./social-links";
+
+const techStack = ["React", "Next.js", "Tailwind", "Node", "TypeScript", "CSS", "HTML", "JavaScript"];
+
 export function IdentityCard() {
     return (
         <motion.div
@@ -13,57 +17,60 @@ export function IdentityCard() {
             whileHover={{scale: 1.03}}
             className="relative w-full"
         >
-            {/* Glow Frame */}
-            <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_0_60px_rgba(59,130,246,0.15)]">
-                {/* Avatar Section */}
+            <div className="relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_0_60px_rgba(59,130,246,0.15)] backdrop-blur-xl">
+                {/* Avatar */}
                 <div className="flex justify-center">
-                    <div className="relative w-28 h-28">
-                        {/* Glow Ring */}
+                    <div className="relative h-28 w-28">
                         <div className="absolute inset-0 rounded-full bg-blue-500/20 blur-xl" />
 
-                        {/* Image Container */}
-                        <div className="relative w-full h-full rounded-full overflow-hidden border border-blue-500/30 shadow-lg">
-                            <Image src="/public/profile.jpeg" alt="oday Saad" fill className="object-cover" />
+                        <div className="relative h-full w-full overflow-hidden rounded-full border border-blue-500/30 shadow-lg">
+                            <Image src="/profile.jpeg" alt="Oday Saad" fill priority className="object-cover" />
                         </div>
                     </div>
                 </div>
 
                 {/* Name */}
-                <div className="text-center mt-4 space-y-1">
-                    <h3 className="text-white text-xl font-semibold flex items-center justify-center gap-2">
+                <div className="mt-4 space-y-1 text-center">
+                    <h3 className="flex items-center justify-center gap-2 text-xl font-semibold text-white">
                         Oday Saad
-                        <BadgeCheck className="text-blue-400 w-4 h-4" />
+                        <BadgeCheck className="h-4 w-4 text-blue-400" />
                     </h3>
-                    <p className="text-white/60 text-sm">Fullstack Developer</p>
+
+                    <p className="text-sm text-white/60">Fullstack Developer</p>
                 </div>
 
                 {/* Stats */}
                 <div className="mt-6 grid grid-cols-3 gap-2 text-center">
-                    <div>
-                        <p className="text-white font-semibold">3+</p>
-                        <p className="text-white/50 text-xs">Systems</p>
+                    <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+                        <p className="font-semibold text-white">5+</p>
+                        <p className="text-xs text-white/50">Systems</p>
                     </div>
-                    <div>
-                        <p className="text-white font-semibold">SaaS</p>
-                        <p className="text-white/50 text-xs">Focused</p>
+
+                    <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+                        <p className="font-semibold text-white">SaaS</p>
+                        <p className="text-xs text-white/50">Focused</p>
                     </div>
-                    <div>
-                        <p className="text-white font-semibold">Fast</p>
-                        <p className="text-white/50 text-xs">Delivery</p>
+
+                    <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+                        <p className="font-semibold text-white">Fast</p>
+                        <p className="text-xs text-white/50">Delivery</p>
                     </div>
                 </div>
 
                 {/* Tech Stack */}
                 <div className="mt-6 flex flex-wrap justify-center gap-2">
-                    {[ "React" ,"Next.js", "Tailwind", "Node" , "TS" ,"css" , "HTML" ,"JS" ].map((tech) => (
+                    {techStack.map((tech) => (
                         <span
                             key={tech}
-                            className="text-xs px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/70"
+                            className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70"
                         >
                             {tech}
                         </span>
                     ))}
                 </div>
+
+                {/* Social Links */}
+                <SocialLinks />
             </div>
         </motion.div>
     );

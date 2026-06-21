@@ -1,12 +1,10 @@
 "use client";
 
-import React from "react";
+import {motion} from "framer-motion";
+
 import {HeroText} from "./hero-text";
 import {IdentityCard} from "./identity-card";
 import {HeroBackground} from "./hero-background";
-
-
-import {motion} from "framer-motion";
 
 export function HeroSection() {
     return (
@@ -14,26 +12,21 @@ export function HeroSection() {
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{duration: 0.6, ease: "easeOut"}}
-            className="relative w-full min-h-[90vh] flex items-center overflow-hidden"
+            className="relative flex min-h-[90vh] w-full items-center overflow-hidden"
         >
             <HeroBackground />
 
-            {/* Container */}
-            <div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
-                {/* GRID LAYOUT */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    {/* LEFT SIDE - TEXT SYSTEM */}
+            <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
+                <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
                     <div className="lg:col-span-7">
                         <HeroText />
                     </div>
 
-                    {/* RIGHT SIDE - IDENTITY CARD */}
-                    <div className="lg:col-span-5 flex justify-center lg:justify-end">
+                    <div className="flex justify-center lg:col-span-5 lg:justify-end">
                         <IdentityCard />
                     </div>
                 </div>
             </div>
-           
         </motion.section>
     );
 }

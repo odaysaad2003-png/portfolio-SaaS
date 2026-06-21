@@ -1,7 +1,10 @@
 "use client";
 
-    import {motion} from "framer-motion";
-import { span } from "framer-motion/client";
+import Link from "next/link";
+import {motion} from "framer-motion";
+
+import {CvDownloadActions} from "./cv-download-actions";
+
 const container = {
     hidden: {},
     show: {
@@ -28,12 +31,13 @@ export function HeroText() {
 
             <motion.h1
                 variants={item}
-                className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-white"
+                className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl"
             >
-                <span className="text-blue-400">{` FullStack  "devlober" `}</span> {` for complex problems.. `}
+                <span className="text-blue-400">Fullstack Developer</span> building scalable systems for complex
+                problems.
             </motion.h1>
 
-            <motion.p variants={item} className="text-white/60 text-base md:text-lg leading-relaxed max-w-xl">
+            <motion.p variants={item} className="max-w-xl text-base leading-relaxed text-white/60 md:text-lg">
                 Fullstack Developer specialized in building SaaS-grade applications with clean architecture,
                 performance-first thinking, and system design mindset.
             </motion.p>
@@ -44,14 +48,24 @@ export function HeroText() {
                 <p>• Product-level UI/UX engineering</p>
             </motion.div>
 
-            <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 pt-2">
-                <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-500 px-6 py-3 text-sm font-medium text-white hover:bg-blue-600 transition">
-                    Hire Me
-                </button>
+            <motion.div variants={item} className="flex flex-col gap-4 pt-2">
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <Link
+                        href="/contact"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-500 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-600"
+                    >
+                        Hire Me
+                    </Link>
 
-                <button className="inline-flex items-center justify-center rounded-xl border border-white/15 px-6 py-3 text-sm text-white hover:bg-white/5 transition">
-                    View Case Studies
-                </button>
+                    <Link
+                        href="/projects"
+                        className="inline-flex items-center justify-center rounded-xl border border-white/15 px-5 py-3 text-sm text-white transition hover:bg-white/5"
+                    >
+                        View Case Studies
+                    </Link>
+
+                    <CvDownloadActions />
+                </div>
             </motion.div>
         </motion.div>
     );
