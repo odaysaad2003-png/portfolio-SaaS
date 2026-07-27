@@ -427,4 +427,159 @@ export const projects: Project[] = [
         liveDemoUrl: "https://tanstack-start-app.remah.workers.dev/",
         githubUrl: "https://github.com/odaysaad2003-png/remah-luxe-beauty-main.git",
     },
+    {
+        id: "8",
+        slug: "snd-community-platform",
+
+        title: "SND — Arabic Community Platform",
+
+        description:
+            "A production-oriented Arabic community platform that allows users to share posts, request support, interact through comments and likes, save useful content, report inappropriate activity, and manage their profiles through a secure and accessible digital experience.",
+
+        problem:
+            "Communities need a trusted and organized digital space where people can share situations, publish support requests, communicate with others, and discover useful community content. The main challenge was building this experience while maintaining strong security, clear permissions, reliable data synchronization, Arabic RTL support, and good performance on mobile devices and slow network connections.",
+
+        approach:
+            "Built the platform as a modular Full Stack application using a feature-based frontend architecture and a layered REST API backend. Public content is optimized through server rendering and TanStack Query hydration, while protected operations use a secure authentication flow, runtime response validation, role and ownership checks, centralized error handling, reusable UI components, and carefully managed client-side cache synchronization.",
+
+        solution:
+            "Delivered an Arabic-first community platform with public post discovery, secure registration and login, session recovery, post creation and management, image uploads, comments, likes, saved posts, reporting, profile management, moderation-ready backend operations, responsive layouts, dark mode, SEO foundations, and comprehensive loading, empty, validation, network, retry, unauthorized, and error states.",
+
+        context:
+            "SND was developed as a long-term software engineering project focused on building a real product with Production-quality architecture. The project emphasizes separation of responsibilities, secure authentication, scalable feature modules, reliable API contracts, accessibility, Arabic RTL design, maintainability, testing, and deployment across independent frontend and backend environments.",
+
+        architecture: [
+            "Feature-based frontend architecture with isolated domain modules",
+            "Next.js App Router with public and protected route groups",
+            "Server Components for public content and focused Client Components for interactions",
+            "TanStack Query server prefetching, hydration, caching, and mutation synchronization",
+            "Shared HTTP infrastructure with standardized API response envelopes",
+            "Runtime API response validation using strict Zod schemas",
+            "React Hook Form integration for accessible and validated forms",
+            "In-memory Access Token and CSRF Token session storage",
+            "HttpOnly refresh-cookie authentication with automatic session recovery",
+            "Single-flight token refresh and protected request retry handling",
+            "Layered Express architecture using Routes, Middleware, Controllers, Services, and Models",
+            "Role-based authorization and service-level ownership validation",
+            "MongoDB models with indexes, atomic counters, pagination, and deterministic sorting",
+            "Soft deletion and visibility rules for posts and comments",
+            "Likes, saves, comments, and reports with synchronized client caches",
+            "Cloudinary image storage with controlled Multer upload middleware",
+            "Backend administration APIs for users, post moderation, reports, and dashboard summaries",
+            "Request IDs, structured logging, centralized errors, Helmet, CORS, and rate limiting",
+            "Reusable semantic UI components with Arabic RTL and responsive design",
+            "Light and dark themes with accessibility and reduced-motion support",
+            "SEO metadata, sitemap, robots configuration, and public post indexing",
+            "Independent deployment using Vercel for the frontend and Render for the backend",
+        ],
+
+        technologies: [
+            "Next.js 16",
+            "React 19",
+            "TypeScript",
+            "Tailwind CSS 4",
+            "TanStack Query",
+            "React Hook Form",
+            "Zod",
+            "Motion",
+            "next-themes",
+            "Radix UI",
+            "Lucide React",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Mongoose",
+            "JWT",
+            "bcrypt",
+            "Cloudinary",
+            "Multer",
+            "Helmet",
+            "CORS",
+            "Express Rate Limit",
+            "Vitest",
+            "Testing Library",
+            "Vercel",
+            "Render",
+        ],
+
+        metrics: [
+            {
+                label: "Frontend Feature Domains",
+                value: "9",
+            },
+            {
+                label: "Core Interaction Systems",
+                value: "4",
+            },
+            {
+                label: "API Architecture",
+                value: "REST API v1",
+            },
+            {
+                label: "Authentication",
+                value: "Access + Refresh",
+            },
+            {
+                label: "Arabic RTL Support",
+                value: "Yes",
+            },
+            {
+                label: "Responsive Design",
+                value: "Mobile First",
+            },
+            {
+                label: "Themes",
+                value: "Light + Dark",
+            },
+            {
+                label: "Deployment",
+                value: "Vercel + Render",
+            },
+        ],
+
+        images: [
+            {
+                url: "/snd/snd-landing-page.png",
+                alt: "SND Arabic community platform landing page",
+            },
+            {
+                url: "/snd/snd-public-feed.png",
+                alt: "SND public community posts feed",
+            },
+            
+            {
+                url: "/snd/snd-authentication.png",
+                alt: "SND secure login and registration interface",
+            },
+           
+        ],
+
+        featured: true,
+        createdAt: "2026-07-27",
+        category: "fullstack",
+
+        tags: [
+            "community-platform",
+            "full-stack",
+            "nextjs",
+            "react",
+            "typescript",
+            "nodejs",
+            "express",
+            "mongodb",
+            "tanstack-query",
+            "authentication",
+            "rest-api",
+            "cloudinary",
+            "rtl",
+            "responsive",
+            "accessibility",
+            "dark-mode",
+            "admin-api",
+            "production-architecture",
+        ],
+
+        liveDemoUrl: "https://snd-midd-core.vercel.app/",
+        githubUrl: "https://github.com/odaysaad2003-png/SND_MIDD_CORE",
+    },
 ];
