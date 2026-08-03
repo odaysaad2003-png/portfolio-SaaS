@@ -176,7 +176,7 @@ export const projects: Project[] = [
 
         tags: ["landing-page", "business-website", "responsive", "html-css-js"],
 
-        liveDemoUrl: "https://odaysaad2003-png.github.io/HomHiv-partment-Project/",
+        liveDemoUrl: "https://hom-neon.vercel.app/",
         githubUrl: "https://github.com/odaysaad2003-png/HomHiv-partment-Project",
     },
 
@@ -294,7 +294,7 @@ export const projects: Project[] = [
 
         tags: ["business-website", "construction", "aos", "responsive", "landing-page"],
 
-        liveDemoUrl: "https://odaysaad2003-png.github.io/Bulding-Project/",
+        liveDemoUrl: "https://build-n5t3ku4i1-oday-saad.vercel.app/",
         githubUrl: "https://github.com/odaysaad2003-png/Bulding-Project",
     },
 
@@ -546,12 +546,11 @@ export const projects: Project[] = [
                 url: "/snd/snd-public-feed.png",
                 alt: "SND public community posts feed",
             },
-            
+
             {
                 url: "/snd/snd-authentication.png",
                 alt: "SND secure login and registration interface",
             },
-           
         ],
 
         featured: true,
